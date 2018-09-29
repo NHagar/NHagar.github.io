@@ -1,9 +1,7 @@
 header:
   - title:      Home
     url:        /index.html
-  - title:      Blog
-    url:        /blog.html
-  - title:      Portfolio
-    url:        /portfolio.html
+  - title:      Past work
+    url:        /archive.html
   - title:      Bio
     url:        /bio.html
