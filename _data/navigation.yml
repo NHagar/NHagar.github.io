@@ -1,7 +1,7 @@
 header:
   - title:      Home
     url:        /index.html
+  - title:      Research
+    url:        /research.html
   - title:      Past work
     url:        /archive.html
-  - title:      Bio
-    url:        /bio.html
