@@ -3,7 +3,5 @@ header:
     url:        /index.html
   - title:      CV
     url:        /assets/CV.pdf
-  - title:      Research
-    url:        /research.html
   - title:      Past work
     url:        /archive.html
