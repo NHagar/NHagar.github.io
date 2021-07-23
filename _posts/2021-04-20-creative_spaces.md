@@ -4,8 +4,13 @@ title: The competitive advantage of creative spaces
 date: 2021-04-20
 description: The rapid disappearance of the creative web
 ---
-<div class="row mt-3">
-    <img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/site.png">
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <img class="img-fluid rounded z-depth-1" src="{{ '/assets/img/site.png' | relative_url }}" alt="screenshot of a website homepage"/>
+    </div>
+</div>
+<div class="caption">
+    Yamauchi №10 Family Office home page
 </div>
 
 Last week the website of [Yamauchi №10 Family Office](https://y-n10.com/) made the rounds. It’s a great website — isometric scrolling! Voxel animations! Music!
