@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /publications/
-title: Publications and presentations
+title: publications and presentations
 description: Peer-reviewed journal articles and conference presentations
 years: [2021, 2020, 2019]
 nav: true
