@@ -7,11 +7,16 @@ first_name: Nick
 # middle_name: R.
 last_name: Hagar
 email: nhagar@u.northwestern.edu
+first_name: Nick
+# middle_name: R.
+last_name: Hagar
+email: nhagar@u.northwestern.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   PhD researcher at Northwestern University. Studies collective attention problems.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 
 icon: 🏃‍♂️ # the emoji used as the favicon
 url:  # the base hostname & protocol for your site
@@ -64,6 +69,7 @@ og_image: # The site-wide (default for all links) Open Graph preview image
 # -----------------------------------------------------------------------------
 
 github_username: nhagar # your GitHub user name
+github_username: nhagar # your GitHub user name
 gitlab_username: # your GitLab user name
 twitter_username: nickhagar # your Twitter handle
 linkedin_username: # your LinkedIn user name
@@ -87,11 +93,11 @@ stackoverflow_id: #your stackoverflow id
 # Analytics and search engine verification
 # -----------------------------------------------------------------------------
 
-google_analytics:  # your google-analytics ID (format: UA-XXXXXXXXX)
-panelbear_analytics:  # panelbear analytics site ID (format: XXXXXXXXX)
+# contact_note: >
+#  You can even add a little note about which of these is the best way to reach you.
 
-google_site_verification:  # your google-site-verification ID (Google Search Console)
-bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
+google_analytics: UA-126478208-1 # out your google-analytics code
+panelbear_analytics: XXXXXXXXX # panelbear analytics site ID
 
 # -----------------------------------------------------------------------------
 # Blog
