@@ -27,8 +27,18 @@ const sections: NavSection[] = [
 ];
 ---
 
-<nav class="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden xl:block">
-    <div class="bg-white rounded-lg shadow-lg border border-gray-200 p-4 w-56">
+<nav class="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden xl:block group">
+    <!-- Collapsed state - small icon -->
+    <div
+        class="bg-white rounded-full shadow-lg border border-gray-200 p-3 group-hover:opacity-0 group-hover:scale-95 transition-all duration-300 cursor-pointer"
+    >
+        <Icon name="mdi:menu" class="w-5 h-5 text-primary-600" />
+    </div>
+
+    <!-- Expanded state - full navigation -->
+    <div
+        class="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg border border-gray-200 p-4 w-56 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto"
+    >
         <h3
             class="text-sm font-semibold text-text-primary mb-3 academic-heading"
         >
@@ -40,12 +50,12 @@ const sections: NavSection[] = [
                     <li>
                         <a
                             href={`#${section.id}`}
-                            class="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-text-secondary hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 group"
+                            class="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-text-secondary hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 group/link"
                             data-nav-link={section.id}
                         >
                             <Icon
                                 name={section.icon}
-                                class="w-4 h-4 text-text-tertiary group-hover:text-primary-600 transition-colors"
+                                class="w-4 h-4 text-text-tertiary group-hover/link:text-primary-600 transition-colors"
                             />
                             <span class="academic-text">{section.label}</span>
                         </a>
@@ -116,5 +126,34 @@ const sections: NavSection[] = [
         sections.forEach((section) => {
             observer.observe(section);
         });
+
+        // Add a subtle pulse to the collapsed nav when there's an active section
+        const navContainer = document.querySelector("nav.group");
+        const collapsedIcon = navContainer?.querySelector(".rounded-full");
+
+        if (navContainer && collapsedIcon) {
+            const updateCollapsedState = () => {
+                const hasActiveSection = document.querySelector(
+                    "[data-nav-link].text-primary-600",
+                );
+                if (hasActiveSection) {
+                    collapsedIcon.classList.add(
+                        "ring-2",
+                        "ring-primary-200",
+                        "ring-offset-2",
+                    );
+                } else {
+                    collapsedIcon.classList.remove(
+                        "ring-2",
+                        "ring-primary-200",
+                        "ring-offset-2",
+                    );
+                }
+            };
+
+            // Check initially and on scroll
+            updateCollapsedState();
+            window.addEventListener("scroll", updateCollapsedState);
+        }
     });
 </script>
