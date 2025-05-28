@@ -9,6 +9,7 @@ import PapersSection from "../components/PapersSection.astro";
 import BlogSection from "../components/BlogSection.astro";
 import MentionsSection from "../components/MentionsSection.astro";
 import PrototypesSection from "../components/PrototypesSection.astro";
+import FloatingNav from "../components/FloatingNav.astro";
 
 import { getCollection } from "astro:content";
 
@@ -44,13 +45,16 @@ const pageDescription =
 				cy='\"2\"'
 				r='\"1\"'
 				fill='\"%23000\"/'></circle>
-		</div>');">
+		</div>
 	</div>
 </MainLayout>
 
 <div
 	class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl py-8 md:py-12 relative"
 >
+	<!-- Floating Navigation -->
+	<FloatingNav />
+
 	<Header />
 
 	<main class="mt-16 space-y-24 md:space-y-32">
