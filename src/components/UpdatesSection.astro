@@ -1,15 +1,13 @@
 ---
-// src/components/UpdatesSection.astro
 import type { CollectionEntry } from "astro:content";
-import { Icon } from "astro-icon/components"; // For a potential link icon
+import { Icon } from "astro-icon/components";
 
 interface Props {
-    updates: CollectionEntry<"updates">[]; // Expects an array of update entries
+    updates: CollectionEntry<"updates">[];
 }
 
 const { updates } = Astro.props;
 
-// Helper function to format date (optional, can also format directly in template)
 function formatDate(date: Date): string {
     return new Intl.DateTimeFormat("en-US", {
         month: "long",
@@ -17,60 +15,91 @@ function formatDate(date: Date): string {
         day: "numeric",
     }).format(date);
 }
+
+// Sort updates by date descending
+const sortedUpdates = updates.sort(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
 ---
 
-<section aria-labelledby="updates-heading">
-    <h2
-        id="updates-heading"
-        class="text-2xl sm:text-3xl font-bold text-text-primary mb-6"
-    >
-        Recent Updates
-    </h2>
-    {
-        updates && updates.length > 0 ? (
-            <ul class="space-y-5">
-                {updates.map((update) => (
-                    <li class="flex items-start space-x-3 p-4 border border-border-color/30 rounded-lg bg-background shadow-sm hover:shadow-depth-sm transition-shadow duration-200">
-                        <span class="text-xl sm:text-2xl pt-0.5">
-                            {update.data.emoji}
-                        </span>
-                        <div class="flex-1">
-                            <p class="text-sm text-text-secondary font-medium">
-                                {formatDate(update.data.date)}
-                            </p>
-                            <p class="text-base text-text-primary mt-1 leading-relaxed">
-                                <Fragment
-                                    set:html={
-                                        // Basic sanitization or Markdown processing could be added here if descriptions contain HTML/Markdown
-                                        // For now, assuming plain text or simple HTML like <em>
-                                        update.data.description.replace(
-                                            /\*(.*?)\*/g,
-                                            "<em>$1</em>",
-                                        ) // Example: Convert *text* to <em>text</em>
-                                    }
-                                />
+<section aria-labelledby="updates-heading" class="animate-section">
+    <div class="relative">
+        <!-- Background decoration -->
+        <div class="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-primary-200 to-accent-purple/20 rounded-full blur-3xl opacity-50"></div>
+        
+        <div class="relative">
+            <div class="flex items-center justify-between mb-8">
+                <h2 id="updates-heading" class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-purple bg-clip-text text-transparent">
+                    Recent Updates
+                </h2>
+                <div class="h-0.5 flex-1 ml-6 bg-gradient-to-r from-primary-200 to-transparent"></div>
+            </div>
+            
+            {sortedUpdates && sortedUpdates.length > 0 ? (
+                <div class="space-y-4">
+                    {sortedUpdates.map((update, index) => (
+                        <div 
+                            class="group relative flex items-start gap-4 p-5 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover-lift overflow-hidden"
+                            style={`animation-delay: ${0.1 * index}s;`}
+                        >
+                            <!-- Gradient overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-primary-50/50 via-transparent to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            
+                            <!-- Timeline connector (for visual interest) -->
+                            {index < sortedUpdates.length - 1 && (
+                                <div class="absolute left-9 top-16 bottom-0 w-0.5 bg-gradient-to-b from-primary-200 to-transparent"></div>
+                            )}
+                            
+                            <!-- Emoji container with glow effect -->
+                            <div class="relative flex-shrink-0">
+                                <div class="absolute inset-0 bg-gradient-to-br from-primary-400 to-accent-purple opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-300"></div>
+                                <span class="relative text-2xl sm:text-3xl block p-2">
+                                    {update.data.emoji}
+                                </span>
+                            </div>
+                            
+                            <div class="flex-1 relative">
+                                <time 
+                                    datetime={update.data.date.toISOString()}
+                                    class="text-xs font-medium text-primary-600 flex items-center gap-1"
+                                >
+                                    <Icon name="mdi:calendar-star" class="w-3 h-3" />
+                                    {formatDate(update.data.date)}
+                                </time>
+                                
+                                <p class="mt-1 text-base text-text-primary leading-relaxed">
+                                    <Fragment
+                                        set:html={
+                                            update.data.description
+                                                .replace(/\*(.*?)\*/g, '<em class="font-semibold text-primary-600 not-italic">$1</em>')
+                                                .replace(/_(.*?)_/g, '<span class="underline decoration-primary-300 decoration-2 underline-offset-2">$1</span>')
+                                        }
+                                    />
+                                </p>
+                                
                                 {update.data.link && (
                                     <a
                                         href={update.data.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        class="inline-flex items-center text-primary-accent hover:underline ml-2 text-sm"
-                                        aria-label={`Read more about ${update.data.description.substring(0, 30)}...`}
+                                        class="inline-flex items-center gap-1 mt-2 text-sm font-medium text-primary-600 hover:text-accent-purple transition-colors duration-300"
                                     >
+                                        <span>Learn more</span>
                                         <Icon
-                                            name="mdi:open-in-new"
-                                            class="w-4 h-4 mr-1"
+                                            name="mdi:arrow-right"
+                                            class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                                         />
-                                        <span>Link</span>
                                     </a>
                                 )}
-                            </p>
+                            </div>
                         </div>
-                    </li>
-                ))}
-            </ul>
-        ) : (
-            <p class="text-text-secondary">No recent updates to display.</p>
-        )
-    }
+                    ))}
+                </div>
+            ) : (
+                <p class="text-text-secondary text-center py-8">
+                    No recent updates to display.
+                </p>
+            )}
+        </div>
+    </div>
 </section>

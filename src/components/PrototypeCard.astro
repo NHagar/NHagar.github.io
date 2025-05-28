@@ -1,8 +1,7 @@
 ---
-// src/components/PrototypeCard.astro
 import type { CollectionEntry } from "astro:content";
 import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets"; // For optimized images
+import { Image } from "astro:assets";
 
 interface Props {
     item: CollectionEntry<"prototypes">["data"];
@@ -12,16 +11,18 @@ const { item } = Astro.props;
 const hasImage = item.image && item.image.startsWith("/");
 ---
 
-<div
-    class="bg-background p-0 rounded-xl border border-border-color/50 shadow-lg hover:shadow-depth-md transition-all duration-300 ease-in-out transform hover:-translate-y-1 flex flex-col h-full overflow-hidden"
->
-    {
-        hasImage && (
+<div class="group relative hover-lift h-full">
+    <!-- Gradient glow effect -->
+    <div class="absolute -inset-0.5 bg-gradient-to-r from-primary-400 via-accent-purple to-accent-pink rounded-2xl opacity-0 group-hover:opacity-75 blur transition-all duration-300"></div>
+    
+    <!-- Card content -->
+    <div class="relative bg-white rounded-2xl overflow-hidden h-full flex flex-col shadow-md group-hover:shadow-xl transition-all duration-300">
+        {hasImage && (
             <a
                 href={item.link}
                 target={item.link.startsWith("http") ? "_blank" : "_self"}
                 rel="noopener noreferrer"
-                class="block aspect-video overflow-hidden"
+                class="block relative aspect-video overflow-hidden bg-gradient-to-br from-primary-100 to-accent-purple/20"
             >
                 <Image
                     src={item.image!}
@@ -30,60 +31,68 @@ const hasImage = item.image && item.image.startsWith("/");
                     height={338}
                     format="webp"
                     quality={80}
-                    class="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                    class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:rotate-1"
                 />
+                <!-- Overlay gradient on hover -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <!-- View indicator -->
+                <div class="absolute bottom-4 right-4 p-2 rounded-full bg-white/90 backdrop-blur-sm text-primary-600 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                    <Icon name="mdi:eye" class="w-5 h-5" />
+                </div>
             </a>
-        )
-    }
-    <div class="p-6 flex flex-col flex-grow">
-        <div class="flex-grow">
-            <h3 class="text-xl font-semibold text-text-primary mb-2">
-                <a
-                    href={item.link}
-                    target={item.link.startsWith("http") ? "_blank" : "_self"}
-                    rel="noopener noreferrer"
-                    class="hover:text-primary-accent transition-colors"
-                >
-                    {item.name}
-                    {
-                        item.link.startsWith("http") && (
+        )}
+        
+        <div class="p-6 flex flex-col flex-grow">
+            <div class="flex-grow">
+                <h3 class="text-xl font-semibold text-text-primary mb-3">
+                    <a
+                        href={item.link}
+                        target={item.link.startsWith("http") ? "_blank" : "_self"}
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 group-hover:text-primary-600 transition-colors duration-300"
+                    >
+                        <span class="relative">
+                            {item.name}
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-accent-purple group-hover:w-full transition-all duration-300"></span>
+                        </span>
+                        {item.link.startsWith("http") && (
                             <Icon
                                 name="mdi:open-in-new"
-                                class="w-4 h-4 inline-block ml-1 text-text-secondary group-hover:text-primary-accent"
+                                class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300"
                             />
-                        )
-                    }
-                </a>
-            </h3>
-            <p class="text-sm text-text-secondary leading-relaxed mb-4">
-                {item.description}
-            </p>
-        </div>
+                        )}
+                    </a>
+                </h3>
+                <p class="text-sm text-text-secondary leading-relaxed mb-4">
+                    {item.description}
+                </p>
+            </div>
 
-        <div class="mt-auto pt-4">
-            {
-                item.tags && item.tags.length > 0 && (
-                    <div class="mb-3 flex flex-wrap gap-2">
+            <div class="mt-auto">
+                {item.tags && item.tags.length > 0 && (
+                    <div class="mb-4 flex flex-wrap gap-2">
                         {item.tags.map((tag) => (
-                            <span class="text-xs bg-light-accent text-primary-accent/80 px-2 py-1 rounded-full font-medium">
+                            <span class="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-primary-100 to-accent-purple/20 text-primary-700 font-medium border border-primary-200/50">
                                 {tag}
                             </span>
                         ))}
                     </div>
-                )
-            }
-            <a
-                href={item.link}
-                target={item.link.startsWith("http") ? "_blank" : "_self"}
-                rel="noopener noreferrer"
-                class="text-sm text-primary-accent hover:underline font-semibold inline-flex items-center group"
-            >
-                View Prototype
-                <Icon
-                    name="mdi:arrow-right"
-                    class="w-4 h-4 ml-1 transition-transform duration-200 ease-in-out group-hover:translate-x-1"
-                />
-            </a>
+                )}
+                
+                <a
+                    href={item.link}
+                    target={item.link.startsWith("http") ? "_blank" : "_self"}
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 text-sm font-semibold text-primary-600 group-hover:text-accent-purple transition-colors duration-300"
+                >
+                    <span>Explore Prototype</span>
+                    <Icon
+                        name="mdi:arrow-right"
+                        class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                </a>
+            </div>
         </div>
     </div>
 </div>

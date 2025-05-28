@@ -1,69 +1,51 @@
 ---
-// src/components/Header.astro
-// Using Heroicons for this example. You can install with: npm install @iconify-json/heroicons
-// Or use SVGs directly, or another icon library.
-import { Icon } from "astro-icon/components"; // For using iconify collections
+import { Icon } from "astro-icon/components";
 
 const socialLinks = [
-    { name: "GitHub", href: "https://github.com/NHagar/", icon: "mdi:github" }, // mdi:github is from Material Design Icons
-    {
-        name: "LinkedIn",
-        href: "https://www.linkedin.com/in/nicholashagar/",
-        icon: "mdi:linkedin",
-    },
-    {
-        name: "Medium",
-        href: "https://medium.com/@nicholashagar",
-        icon: "mdi:medium",
-    },
-    {
-        name: "CV",
-        href: "https://docs.google.com/document/d/10QOEsf53CFH_TFZpLgHHXcIzP5M69dMd/edit?usp=sharing&ouid=106222885453853342041&rtpof=true&sd=true",
-        icon: "mdi:file-document-outline",
-        label: "CV",
-    }, // Using mdi:file-pdf-box might be better if it's always a PDF
+    { name: "GitHub", href: "https://github.com/NHagar/", icon: "mdi:github" },
+    { name: "LinkedIn", href: "https://www.linkedin.com/in/nicholashagar/", icon: "mdi:linkedin" },
+    { name: "Medium", href: "https://medium.com/@nicholashagar", icon: "mdi:medium" },
+    { name: "CV", href: "https://docs.google.com/document/d/10QOEsf53CFH_TFZpLgHHXcIzP5M69dMd/edit", icon: "mdi:file-document-outline", label: "CV" },
 ];
 
 const name = "Nick Hagar";
-const tagline =
-    "Postdoctoral Scholar @ Northwestern University | Generative AI in the Newsroom Initiative";
-// A shorter alternative for the tagline if the above is too long for the header:
-// const tagline = "Researching Collective Attention & AI in Journalism";
+const tagline = "Postdoctoral Scholar @ Northwestern University | Generative AI in the Newsroom Initiative";
 ---
 
-<header class="text-center md:text-left">
-    <div class="md:flex md:items-center md:justify-between">
+<header class="relative text-center md:text-left animate-fade-in">
+    <!-- Decorative gradient orb -->
+    <div class="absolute -top-10 -left-10 w-32 h-32 bg-gradient-to-br from-primary-400 to-accent-purple opacity-20 rounded-full blur-3xl"></div>
+    
+    <div class="relative md:flex md:items-center md:justify-between">
         <div>
-            <h1
-                class="text-4xl sm:text-5xl font-extrabold tracking-tight text-text-primary"
-            >
-                {name}
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
+                <span class="bg-gradient-to-r from-primary-600 via-accent-purple to-accent-pink bg-clip-text text-transparent animate-gradient bg-300%">
+                    {name}
+                </span>
             </h1>
-            <p class="mt-2 text-lg sm:text-xl text-text-secondary">
+            <p class="mt-3 text-lg sm:text-xl text-text-secondary max-w-2xl">
                 {tagline}
             </p>
         </div>
 
-        <div
-            class="mt-6 md:mt-0 md:ml-6 flex justify-center md:justify-start space-x-5"
-        >
-            {
-                socialLinks.map((link) => (
-                    <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-text-secondary hover:text-primary-accent transition-colors duration-150"
-                        aria-label={link.label || link.name}
-                    >
-                        <Icon name={link.icon} class="w-6 h-6 sm:w-7 sm:h-7" />
-                    </a>
-                ))
-            }
+        <div class="mt-6 md:mt-0 md:ml-6">
+            <div class="inline-flex backdrop-blur-md bg-white/60 rounded-full px-6 py-3 shadow-glass border border-white/20">
+                <div class="flex space-x-5">
+                    {socialLinks.map((link) => (
+                        <a
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="group relative text-text-secondary hover:text-primary-600 transition-all duration-300"
+                            aria-label={link.label || link.name}
+                        >
+                            <Icon name={link.icon} class="w-6 h-6 sm:w-7 sm:h-7 transition-all duration-300 group-hover:scale-110" />
+                            <!-- Hover glow effect -->
+                            <span class="absolute inset-0 rounded-full bg-primary-400 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></span>
+                        </a>
+                    ))}
+                </div>
+            </div>
         </div>
     </div>
 </header>
-
-<style>
-    /* Add any component-specific styles here if needed, though Tailwind should cover most */
-</style>

@@ -1,7 +1,7 @@
 ---
-// src/components/PrototypesSection.astro
 import type { CollectionEntry } from "astro:content";
 import PrototypeCard from "./PrototypeCard.astro";
+import { Icon } from "astro-icon/components";
 
 interface Props {
     prototypes: CollectionEntry<"prototypes">[];
@@ -9,29 +9,72 @@ interface Props {
 
 const { prototypes } = Astro.props;
 
-// Optional: Sort prototypes if needed, e.g., by an 'order' field or name
+// Optional: Sort prototypes if you have an order field
 // const sortedPrototypes = prototypes.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
-// For now, we'll use the order they come from getCollection
 ---
 
-<section aria-labelledby="prototypes-heading">
-    <h2
-        id="prototypes-heading"
-        class="text-2xl sm:text-3xl font-bold text-text-primary mb-8"
-    >
-        Prototypes & Projects
-    </h2>
-    {
-        prototypes && prototypes.length > 0 ? (
-            <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
-                {prototypes.map((itemEntry) => (
-                    <PrototypeCard item={itemEntry.data} />
-                ))}
+<section aria-labelledby="prototypes-heading" class="animate-section relative">
+    <!-- Background decoration -->
+    <div class="absolute -top-20 -left-20 w-64 h-64 bg-gradient-to-br from-accent-purple/20 to-accent-pink/20 rounded-full blur-3xl opacity-30"></div>
+    <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-gradient-to-br from-primary-300/20 to-accent-orange/20 rounded-full blur-3xl opacity-30"></div>
+    
+    <div class="relative">
+        <!-- Section header with icon -->
+        <div class="flex items-center justify-between mb-10">
+            <div class="flex items-center gap-4">
+                <div class="p-3 rounded-xl bg-gradient-to-br from-primary-500 to-accent-purple text-white shadow-lg">
+                    <Icon name="mdi:lightbulb" class="w-6 h-6" />
+                </div>
+                <h2 id="prototypes-heading" class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-purple bg-clip-text text-transparent">
+                    Prototypes & Projects
+                </h2>
             </div>
+            <div class="h-0.5 flex-1 ml-6 bg-gradient-to-r from-primary-200 to-transparent"></div>
+        </div>
+
+        {prototypes && prototypes.length > 0 ? (
+            <>
+                <!-- Introductory text (optional) -->
+                <p class="text-text-secondary mb-8 text-center md:text-left max-w-2xl">
+                    Exploring ideas through interactive prototypes and experimental projects. 
+                    Each represents a unique approach to solving problems at the intersection of 
+                    technology, journalism, and data science.
+                </p>
+                
+                <!-- Projects grid with staggered animations -->
+                <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+                    {prototypes.map((itemEntry, index) => (
+                        <div 
+                            class="animate-fade-in" 
+                            style={`animation-delay: ${0.1 * index}s;`}
+                        >
+                            <PrototypeCard item={itemEntry.data} />
+                        </div>
+                    ))}
+                </div>
+                
+                <!-- Call to action or additional info -->
+                <div class="mt-12 text-center">
+                    <div class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-primary-50 to-accent-purple/10 border border-primary-200/50">
+                        <Icon name="mdi:rocket-launch" class="w-5 h-5 text-primary-600" />
+                        <span class="text-sm font-medium text-text-secondary">
+                            Always experimenting with new ideas
+                        </span>
+                    </div>
+                </div>
+            </>
         ) : (
-            <p class="text-text-secondary">
-                No prototypes or projects to display at the moment.
-            </p>
-        )
-    }
+            <div class="text-center py-12">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary-100 to-accent-purple/20 mb-4">
+                    <Icon name="mdi:flask-empty" class="w-8 h-8 text-primary-600" />
+                </div>
+                <p class="text-text-secondary">
+                    No prototypes or projects to display at the moment.
+                </p>
+                <p class="text-sm text-text-tertiary mt-2">
+                    Check back soon for new experiments!
+                </p>
+            </div>
+        )}
+    </div>
 </section>

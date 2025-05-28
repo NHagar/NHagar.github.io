@@ -1,5 +1,4 @@
 ---
-// src/components/PapersSection.astro
 import type { CollectionEntry } from "astro:content";
 import { Icon } from "astro-icon/components";
 
@@ -9,71 +8,106 @@ interface Props {
 
 const { papers } = Astro.props;
 
-// Optional: Sort papers, e.g., by year descending, then by title or a specific order field
 const sortedPapers = papers.sort((a, b) => {
     if (b.data.year !== a.data.year) {
         return b.data.year - a.data.year;
     }
-    // Optional: secondary sort by title if years are the same
-    // return a.data.title.localeCompare(b.data.title);
-    return 0; // Or maintain original order for same year if no secondary sort
+    return 0;
 });
+
+const paperTypeIcons = {
+    "Conference Paper": "mdi:presentation",
+    "Journal Article": "mdi:file-document",
+    "Conference Session": "mdi:account-group",
+    "Invited Talk": "mdi:microphone",
+};
 ---
 
-<section aria-labelledby="papers-heading">
-    <h2
-        id="papers-heading"
-        class="text-2xl sm:text-3xl font-bold text-text-primary mb-6"
-    >
-        Academic Papers & Talks
-    </h2>
-    {
-        sortedPapers && sortedPapers.length > 0 ? (
-            <ul class="space-y-6">
-                {sortedPapers.map((paper) => (
-                    <li class="pb-4 border-b border-border-color/20 last:border-b-0">
-                        <h3 class="text-lg font-semibold text-text-primary mb-1">
-                            {paper.data.title}
-                        </h3>
-                        <p class="text-sm text-text-secondary mb-1">
-                            <span class="font-medium">Authors:</span>{" "}
-                            {paper.data.authors.join(", ")}
-                        </p>
-                        <p class="text-sm text-text-secondary mb-2">
-                            <span class="font-medium">Venue:</span>{" "}
-                            {paper.data.venue}, {paper.data.year}
-                        </p>
-                        {paper.data.link && (
-                            <a
-                                href={paper.data.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="text-sm text-primary-accent hover:underline inline-flex items-center group"
-                            >
-                                Read Paper / View Details
-                                <Icon
-                                    name="mdi:arrow-right"
-                                    class="w-4 h-4 ml-1 transition-transform duration-200 ease-in-out group-hover:translate-x-1"
+<section aria-labelledby="papers-heading" class="animate-section">
+    <div class="flex items-center justify-between mb-8">
+        <h2 id="papers-heading" class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-purple bg-clip-text text-transparent">
+            Academic Papers & Talks
+        </h2>
+        <div class="h-0.5 flex-1 ml-6 bg-gradient-to-r from-primary-200 to-transparent"></div>
+    </div>
+    
+    {sortedPapers && sortedPapers.length > 0 ? (
+        <div class="space-y-6">
+            {sortedPapers.map((paper, index) => (
+                <article 
+                    class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white to-primary-50/30 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover-lift"
+                    style={`animation-delay: ${0.1 * index}s;`}
+                >
+                    <!-- Animated gradient background -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-primary-100/50 via-accent-purple/10 to-accent-pink/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="p-2 rounded-lg bg-primary-100 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-all duration-300">
+                                <Icon 
+                                    name={paperTypeIcons[paper.data.type] || "mdi:file-document"} 
+                                    class="w-6 h-6" 
                                 />
-                            </a>
-                        )}
-                    </li>
-                ))}
-            </ul>
-        ) : (
-            <p class="text-text-secondary">
-                No academic papers to display at the moment.
-            </p>
-        )
-    }
-    <p class="mt-6 text-center md:text-left">
+                            </div>
+                            
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-text-primary mb-2 group-hover:text-primary-600 transition-colors duration-300">
+                                    {paper.data.link ? (
+                                        <a
+                                            href={paper.data.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="relative inline-flex items-center gap-2"
+                                        >
+                                            {paper.data.title}
+                                            <Icon name="mdi:open-in-new" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        </a>
+                                    ) : (
+                                        paper.data.title
+                                    )}
+                                </h3>
+                                
+                                <div class="space-y-1 text-sm">
+                                    <p class="text-text-secondary">
+                                        <span class="font-medium">Authors:</span>{" "}
+                                        {paper.data.authors.map((author, i) => (
+                                            <span key={i}>
+                                                {author === "Nick Hagar" ? (
+                                                    <span class="font-semibold text-primary-600">{author}</span>
+                                                ) : (
+                                                    author
+                                                )}
+                                                {i < paper.data.authors.length - 1 && ", "}
+                                            </span>
+                                        ))}
+                                    </p>
+                                    <p class="text-text-secondary flex items-center gap-2">
+                                        <Icon name="mdi:map-marker" class="w-4 h-4 text-primary-400" />
+                                        <span>{paper.data.venue}, {paper.data.year}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            ))}
+        </div>
+    ) : (
+        <p class="text-text-secondary text-center py-8">
+            No academic papers to display at the moment.
+        </p>
+    )}
+    
+    <div class="mt-10 text-center">
         <a
             href="https://scholar.google.com/citations?user=UfMYPhEAAAAJ&hl=en"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-primary-accent hover:underline font-medium"
+            class="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary-500 to-accent-purple text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
         >
-            View all on Google Scholar &rarr;
+            <Icon name="mdi:google" class="w-5 h-5" />
+            <span>View all on Google Scholar</span>
+            <Icon name="mdi:arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
         </a>
-    </p>
+    </div>
 </section>

@@ -1,63 +1,72 @@
 ---
-// src/components/ResearchFocus.astro
-// This component highlights your research focus.
-// You should describe the kind of research you do here.
-// Consider making this section visually distinct.
+const researchFocusIntro = "My research centers on understanding the dynamics of collective attention in complex digital ecosystems. I employ computational methods, data science, and network analysis to investigate:";
 
-const researchFocusIntro =
-    "My research centers on understanding the dynamics of collective attention in complex digital ecosystems. I employ computational methods, data science, and network analysis to investigate:";
 const researchAreas = [
     {
         title: "AI in Journalism & Media",
-        description:
-            "The application and impact of artificial intelligence, particularly generative AI, in newsrooms and the broader media landscape, including ethical considerations and workflow transformations.",
+        icon: "🤖",
+        description: "The application and impact of artificial intelligence, particularly generative AI, in newsrooms and the broader media landscape.",
     },
     {
         title: "Information Discovery & Virality",
-        description:
-            "How individuals and groups discover information online, why certain content becomes popular or viral, and the mechanisms driving these trends across various platforms.",
+        icon: "📈",
+        description: "How individuals and groups discover information online, why certain content becomes popular or viral.",
     },
     {
         title: "Platform Dynamics",
-        description:
-            "Analyzing large social platforms (e.g., TikTok, Reddit, Facebook) and attention markets (e.g., Netflix, Substack) to understand their structural effects on content and consumption.",
+        icon: "🌐",
+        description: "Analyzing large social platforms and attention markets to understand their structural effects.",
     },
     {
         title: "Content Creator Influence",
-        description:
-            "The factors that influence content creators, their strategies for audience engagement, and their role in shaping online narratives and attention markets.",
+        icon: "🎬",
+        description: "The factors that influence content creators and their role in shaping online narratives.",
     },
 ];
 ---
 
-<section
-    aria-labelledby="research-focus-heading"
-    class="py-8 px-6 rounded-xl bg-light-accent/50 border border-border-color shadow-depth-sm"
-    style="--tw-bg-opacity: 0.5;"
->
-    <h2
-        id="research-focus-heading"
-        class="text-2xl sm:text-3xl font-bold text-text-primary mb-6 text-center md:text-left"
-    >
-        My Research Focus
-    </h2>
-    <p
-        class="text-base sm:text-lg text-text-secondary leading-relaxed mb-8 text-center md:text-left"
-    >
-        {researchFocusIntro}
-    </p>
-    <div class="grid md:grid-cols-2 gap-6">
-        {
-            researchAreas.map((area) => (
-                <div class="p-4 border border-border-color/50 rounded-lg bg-background shadow-sm">
-                    <h3 class="text-lg font-semibold text-primary-accent mb-2">
-                        {area.title}
-                    </h3>
-                    <p class="text-sm text-text-secondary leading-normal">
-                        {area.description}
-                    </p>
-                </div>
-            ))
-        }
+<section class="animate-section">
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-50 via-white to-accent-purple/5 p-8 md:p-12 shadow-depth-lg">
+        <!-- Animated mesh gradient -->
+        <div class="absolute inset-0 bg-gradient-mesh opacity-20"></div>
+        
+        <!-- Floating orbs -->
+        <div class="absolute top-10 left-10 w-20 h-20 bg-primary-300 rounded-full blur-3xl opacity-20 animate-float"></div>
+        <div class="absolute bottom-10 right-10 w-32 h-32 bg-accent-purple rounded-full blur-3xl opacity-20 animate-float" style="animation-delay: 3s;"></div>
+        
+        <div class="relative">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-center md:text-left bg-gradient-to-r from-primary-600 to-accent-purple bg-clip-text text-transparent">
+                My Research Focus
+            </h2>
+            <p class="text-base sm:text-lg text-text-secondary leading-relaxed mb-8 text-center md:text-left">
+                {researchFocusIntro}
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                {researchAreas.map((area, index) => (
+                    <div 
+                        class="group relative overflow-hidden rounded-xl bg-white/70 backdrop-blur-sm border border-white/50 shadow-sm hover:shadow-lg transition-all duration-300 hover-lift"
+                        style={`animation-delay: ${0.1 * index}s;`}
+                    >
+                        <!-- Hover gradient -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary-50 to-accent-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        
+                        <div class="relative p-6">
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl">{area.icon}</span>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-primary-600 mb-2">
+                                        {area.title}
+                                    </h3>
+                                    <p class="text-sm text-text-secondary leading-normal">
+                                        {area.description}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
     </div>
 </section>

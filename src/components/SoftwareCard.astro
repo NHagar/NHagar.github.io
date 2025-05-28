@@ -1,5 +1,4 @@
 ---
-// src/components/SoftwareCard.astro
 import type { CollectionEntry } from "astro:content";
 import { Icon } from "astro-icon/components";
 
@@ -10,26 +9,56 @@ interface Props {
 const { item } = Astro.props;
 ---
 
-<div
-    class="bg-background p-6 rounded-xl border border-border-color/50 shadow-lg hover:shadow-depth-md transition-all duration-300 ease-in-out transform hover:-translate-y-1 flex flex-col h-full"
->
-    <div class="flex-grow">
-        <h3 class="text-xl font-semibold text-text-primary mb-2">
-            <a
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="hover:text-primary-accent transition-colors"
+<div class="group relative hover-lift">
+    <!-- Gradient border effect -->
+    <div
+        class="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary-400 to-accent-purple opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"
+    >
+    </div>
+
+    <!-- Card content -->
+    <div
+        class="relative bg-white rounded-2xl border border-gray-100 shadow-md group-hover:shadow-xl transition-all duration-300 overflow-hidden"
+    >
+        <!-- Decorative gradient mesh -->
+        <div
+            class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-100 to-accent-purple/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        >
+        </div>
+
+        <div class="relative p-6 flex flex-col h-full">
+            <div class="flex-grow">
+                <h3 class="text-xl font-semibold mb-2">
+                    <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-text-primary group-hover:text-primary-600 transition-colors duration-300"
+                    >
+                        <span class="relative">
+                            {item.name}
+                            <span
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-accent-purple group-hover:w-full transition-all duration-300"
+                            ></span>
+                        </span>
+                        <Icon
+                            name="mdi:open-in-new"
+                            class="w-4 h-4 text-text-secondary group-hover:text-primary-600 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        />
+                    </a>
+                </h3>
+                <p class="text-sm text-text-secondary leading-relaxed">
+                    {item.description}
+                </p>
+            </div>
+
+            <!-- Hover indicator -->
+            <div
+                class="mt-4 flex items-center gap-2 text-sm text-primary-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             >
-                {item.name}
-                <Icon
-                    name="mdi:open-in-new"
-                    class="w-4 h-4 inline-block ml-1 text-text-secondary group-hover:text-primary-accent"
-                />
-            </a>
-        </h3>
-        <p class="text-sm text-text-secondary leading-relaxed mb-4">
-            {item.description}
-        </p>
+                <span>Explore project</span>
+                <Icon name="mdi:arrow-right" class="w-4 h-4 animate-pulse" />
+            </div>
+        </div>
     </div>
 </div>
