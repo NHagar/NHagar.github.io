@@ -1,0 +1,56 @@
+---
+import type { CollectionEntry } from "astro:content";
+import PrototypeCard from "./PrototypeCard.astro";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    prototypes: CollectionEntry<"prototypes">[];
+}
+
+const { prototypes } = Astro.props;
+
+// Optional: Sort prototypes if you have an order field
+// const sortedPrototypes = prototypes.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+---
+
+<section id="prototypes" aria-labelledby="prototypes-heading" class="animate-section relative">
+    <div class="relative">
+        <!-- Section header -->
+        <div class="flex items-center justify-between mb-10">
+            <div class="flex items-center gap-4">
+                <h2 id="prototypes-heading" class="text-2xl sm:text-3xl font-semibold text-text-primary academic-heading">
+                    Prototypes
+                </h2>
+            </div>
+        </div>
+
+        {prototypes && prototypes.length > 0 ? (
+            <>                
+                <!-- Projects grid with staggered animations -->
+                <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+                    {prototypes.map((itemEntry, index) => (
+                        <div 
+                            class="animate-fade-in" 
+                            style={`animation-delay: ${0.1 * index}s;`}
+                        >
+                            <PrototypeCard item={itemEntry.data} />
+                        </div>
+                    ))}
+                </div>
+                
+            </>
+        ) : (
+            <div class="text-center py-12">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-50 border border-gray-200 mb-4">
+                    <Icon name="mdi:flask-empty" class="w-8 h-8 text-text-secondary" />
+                </div>
+                <p class="text-text-secondary academic-text">
+                    No prototypes or projects to display at the moment.
+                </p>
+                <p class="text-sm text-text-tertiary mt-2 academic-text">
+                    Check back soon for new experiments!
+                </p>
+            </div>
+        )}
+    </div>
+</section>

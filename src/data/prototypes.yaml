@@ -1,0 +1,15 @@
+# src/data/prototypes.yaml
+# Schema:
+# - name: String (Name of the prototype/project)
+#   id: String (Unique identifier, e.g., "ai-research-assistants-comparative")
+#   description: String (Short description)
+#   link: String (URL to the prototype or internal path if hosted within the same site)
+#   image: String (Path to a thumbnail image, e.g., /images/prototype-name.png) - Optional
+#   tags: Array of Strings (e.g., ["Data Visualization", "LLM", "Tool"]) - Optional
+
+- name: "LLM data schema generator"
+  id: "llm-data-schema-generator"
+  description: "An early attempt to automatically generate schema for structured outputs with LLMs."
+  link: "https://llm-schema-generation.streamlit.app/"
+  image: "../assets/images/prototypes/structured_outputs.png"
+  tags: ["LLM", "Document Processing"]

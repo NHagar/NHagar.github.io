@@ -1,0 +1,95 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/Header.astro";
+import Bio from "../components/Bio.astro";
+import ResearchFocus from "../components/ResearchFocus.astro";
+import UpdatesSection from "../components/UpdatesSection.astro";
+import SoftwareSection from "../components/SoftwareSection.astro";
+import PapersSection from "../components/PapersSection.astro";
+import BlogSection from "../components/BlogSection.astro";
+import MentionsSection from "../components/MentionsSection.astro";
+import PrototypesSection from "../components/PrototypesSection.astro";
+import FloatingNav from "../components/FloatingNav.astro";
+
+import { getCollection } from "astro:content";
+
+const blogsCollection = await getCollection("blog");
+const papersCollection = await getCollection("papers");
+const softwareCollection = await getCollection("software");
+const prototypesCollection = await getCollection("prototypes");
+const mentionsCollection = await getCollection("mentions");
+const updatesCollection = await getCollection("updates");
+
+const pageTitle = "Nick Hagar | Research, Code, Writing";
+const pageDescription =
+	"Personal website of Nick Hagar, postdoctoral scholar focusing on collective attention, generative AI, and computational journalism.";
+---
+
+<MainLayout title={pageTitle} description={pageDescription}>
+	<!-- Clean academic background -->
+	<div class="fixed inset-0 -z-10 bg-background">
+		<!-- Subtle texture -->
+		<div
+			class="absolute inset-0 opacity-[0.015]"
+			style="background-image: url('data:image/svg+xml;utf8,<svg width=\"
+			20\"
+			height='\"20\"'
+			viewBox='\"0'
+			0
+			20
+			20\"
+			xmlns='\"http://www.w3.org/2000/svg\"'
+		>
+			<rect width='\"20\"' height='\"20\"' fill='\"none\"/'></rect><circle
+				cx='\"2\"'
+				cy='\"2\"'
+				r='\"1\"'
+				fill='\"%23000\"/'></circle>
+		</div>
+	</div>
+</MainLayout>
+
+<div
+	class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl py-8 md:py-12 relative"
+>
+	<!-- Floating Navigation -->
+	<FloatingNav />
+
+	<Header />
+
+	<main class="mt-16 space-y-24 md:space-y-32">
+		<!-- Each section gets proper spacing and animation -->
+		<UpdatesSection updates={updatesCollection} />
+		<ResearchFocus />
+		<PapersSection papers={papersCollection} />
+		<MentionsSection mentions={mentionsCollection} />
+		<SoftwareSection softwareItems={softwareCollection} />
+		<BlogSection posts={blogsCollection} />
+		<PrototypesSection prototypes={prototypesCollection} />
+		<Bio />
+	</main>
+
+	<!-- Clean academic footer -->
+	<footer class="mt-24 py-8 border-t border-gray-200 bg-background-secondary">
+		<div class="relative text-center space-y-3">
+			<div
+				class="flex items-center justify-center gap-2 text-sm text-text-tertiary"
+			>
+				<span>© {new Date().getFullYear()} Nick Hagar</span>
+				<span class="text-gray-400">•</span>
+				<span>Built with</span>
+				<a
+					href="https://astro.build"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="font-medium text-primary-600 hover:text-primary-700 transition-colors underline decoration-1 underline-offset-2"
+				>
+					Astro
+				</a>
+			</div>
+			<p class="text-xs text-text-tertiary italic">
+				Researching the future of attention, AI, and journalism
+			</p>
+		</div>
+	</footer>
+</div>

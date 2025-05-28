@@ -1,0 +1,41 @@
+---
+const bioParagraphs = [
+    "I'm a postdoctoral scholar at Northwestern University, working on the Generative AI in the Newsroom Initiative. I've worked at the New York Times, Meta, and Patreon. I also have a PhD from Northwestern University, where I was part of the Computational Journalism Lab.",
+    "I research how collective attention works in large, complex systems. I use data science and engineering to study how people discover information online, why things get popular, and what influences content creators. My first love is journalism, but I also study large social platforms (TikTok, Reddit, Facebook) and other attention markets (Netflix, Substack).",
+    "Before grad school, I worked in audience development and analytics at Fusion Media Group, Digiday, Pacific Standard and the Dallas Morning News. I've written for Pacific Standard, the Christian Science Monitor, McSweeney's Internet Tendency and others. I graduated from the Medill School of Journalism and am originally from Fort Wayne, Indiana.",
+];
+---
+
+<section id="bio" class="animate-slide-up">
+    <div
+        class="relative rounded-lg p-8 md:p-10 shadow-card border-academic bg-white"
+    >
+        <div>
+            <h2
+                class="text-2xl sm:text-3xl font-semibold mb-6 text-text-primary academic-heading"
+            >
+                About
+            </h2>
+            <div
+                class="space-y-4 text-base sm:text-lg text-text-secondary academic-text"
+            >
+                {
+                    bioParagraphs.map((paragraph, index) => (
+                        <p
+                            class="leading-relaxed"
+                            set:html={paragraph
+                                .replace(
+                                    /Generative AI in the Newsroom Initiative/g,
+                                    `<a href="https://generative-ai-newsroom.com/" class="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2 transition-colors" target="_blank" rel="noopener noreferrer">Generative AI in the Newsroom Initiative</a>`,
+                                )
+                                .replace(
+                                    /Computational Journalism Lab/g,
+                                    `<a href="https://cj-lab.org/" class="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2 transition-colors" target="_blank" rel="noopener noreferrer">Computational Journalism Lab</a>`,
+                                )}
+                        />
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,66 @@
+---
+import { Icon } from "astro-icon/components";
+
+const socialLinks = [
+    { name: "GitHub", href: "https://github.com/NHagar/", icon: "mdi:github" },
+    {
+        name: "LinkedIn",
+        href: "https://www.linkedin.com/in/nicholashagar/",
+        icon: "mdi:linkedin",
+    },
+    {
+        name: "Medium",
+        href: "https://medium.com/@nicholashagar",
+        icon: "mdi:medium",
+    },
+    {
+        name: "CV",
+        href: "https://docs.google.com/document/d/10QOEsf53CFH_TFZpLgHHXcIzP5M69dMd/edit",
+        icon: "mdi:file-document-outline",
+        label: "CV",
+    },
+];
+
+const name = "Nick Hagar";
+const tagline =
+    "Postdoctoral Scholar @ Northwestern University | Generative AI in the Newsroom Initiative";
+---
+
+<header class="relative animate-fade-in">
+    <div class="md:flex md:items-start md:justify-between">
+        <div class="mb-6 md:mb-0">
+            <h1
+                class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary academic-heading mb-4"
+            >
+                {name}
+            </h1>
+            <p
+                class="text-lg sm:text-xl text-text-secondary academic-text max-w-2xl leading-relaxed"
+            >
+                {tagline}
+            </p>
+        </div>
+
+        <div class="flex-shrink-0">
+            <div
+                class="inline-flex bg-white rounded-lg px-4 py-2 shadow-card border-academic"
+            >
+                <div class="flex space-x-4">
+                    {
+                        socialLinks.map((link) => (
+                            <a
+                                href={link.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-text-tertiary hover:text-primary-600 transition-colors duration-200"
+                                aria-label={link.label || link.name}
+                            >
+                                <Icon name={link.icon} class="w-5 h-5" />
+                            </a>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

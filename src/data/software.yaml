@@ -1,0 +1,20 @@
+# Schema:
+# - name: String (Package Name)
+#   id: String (Unique identifier, e.g., "ai-research-assistants-comparative")
+#   description: String (Short description)
+#   link: String (URL to GitHub repo or project page)
+
+- name: "Substack API"
+  id: "substack-api"
+  description: "Unofficial wrapper for Substack APIs to fetch newsletters, posts, and more."
+  link: "https://github.com/NHagar/substack_api"
+
+- name: "Common Crawl Genealogy"
+  id: "common-crawl-genealogy"
+  description: "Data collection code for 50+ LLM training datasets."
+  link: "https://github.com/NHagar/cc-genealogy"
+
+- name: "Archive Check"
+  id: "archive-check"
+  description: "CLI for collecting website data from the Internet Archive, GDELT, and more."
+  link: "https://github.com/NHagar/archive_check"

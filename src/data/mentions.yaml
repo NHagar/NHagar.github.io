@@ -1,0 +1,39 @@
+# src/data/mentions.yaml
+# Schema:
+# - venue: String (Name of the publication/podcast)
+#   id: String (Unique identifier, e.g., "ai-research-assistants-comparative")
+#   title: String (Title of the article/episode mentioning your work)
+#   link: String (URL to the mention)
+#   work_mentioned_title: String (Title of your work that was mentioned) - Optional
+#   work_mentioned_link: String (Link to your work that was mentioned) - Optional
+#   date: String (YYYY-MM-DD, if available/relevant) - Optional
+
+- venue: "Business Insider"
+  id: "gen-z-news-tiktok"
+  title: "Gen Z has discovered a whole new source for news"
+  link: "https://www.businessinsider.com/gen-z-gets-news-from-tiktok-influencers-media-industry-2023-12"
+  work_mentioned_title: "Algorithmic indifference: The dearth of news recommendations on TikTok"
+  work_mentioned_link: "https://journals.sagepub.com/doi/abs/10.1177/14614448231192964"
+  date: 2023-12-14
+
+- venue: "The New Yorker"
+  id: "social-media-responsibility-news"
+  title: "How Social Media Abdicated Responsibility for the News"
+  link: "https://www.newyorker.com/culture/infinite-scroll/how-social-media-abdicated-responsibility-for-the-news"
+  work_mentioned_title: "Algorithmic indifference: The dearth of news recommendations on TikTok"
+  work_mentioned_link: "https://journals.sagepub.com/doi/abs/10.1177/14614448231192964"
+  date: 2023-10-17
+
+- venue: "Nieman Lab"
+  id: "news-tiktok-algorithmic-indifference"
+  title: "The news will not find you on TikTok"
+  link: "https://www.niemanlab.org/2023/10/the-news-will-not-find-you-on-tiktok/"
+  work_mentioned_title: "Algorithmic indifference: The dearth of news recommendations on TikTok"
+  work_mentioned_link: "https://journals.sagepub.com/doi/abs/10.1177/14614448231192964"
+  date: 2023-10-12
+
+- venue: "The Science of Politics podcast"
+  id: "media-economy-political-news"
+  title: "How the Media Economy Drives Political News"
+  link: "https://www.niskanencenter.org/how-the-media-economy-drives-political-news/"
+  date: 2021-09-08
