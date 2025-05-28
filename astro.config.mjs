@@ -5,8 +5,8 @@ import icon from 'astro-icon'; // 1. Import astro-icon
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://NHagar.github.io', // Replace NHagar with your GitHub username
-    // base: '/', // Or '/your-repo-name/' if a project page
+    site: 'https://NHagar.github.io',
+    base: '/',
 
     integrations: [
         icon({
