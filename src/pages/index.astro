@@ -1,11 +1,50 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+// src/pages/index.astro
+import MainLayout from "../layouts/MainLayout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Import Components (we will create these in subsequent phases)
+import Header from "../components/Header.astro";
+// import Bio from '../components/Bio.astro';
+// import ResearchFocus from '../components/ResearchFocus.astro';
+// import UpdatesSection from '../components/UpdatesSection.astro';
+// import SoftwareSection from '../components/SoftwareSection.astro';
+// import PapersSection from '../components/PapersSection.astro';
+// import BlogSection from '../components/BlogSection.astro';
+// import MentionsSection from '../components/MentionsSection.astro';
+// import PrototypesSection from '../components/PrototypesSection.astro';
+// import Footer from '../components/Footer.astro'; // Optional footer
+
+// Import Data
+import softwareList from "../data/software.yaml";
+import updatesList from "../data/updates.yaml";
+import papersList from "../data/papers.yaml";
+import blogList from "../data/blog.yaml";
+import mentionsList from "../data/mentions.yaml";
+import prototypesList from "../data/prototypes.yaml";
+
+// Sort data where necessary (e.g., updates by date)
+const sortedUpdates = updatesList.sort(
+	(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+);
+const sortedBlogPosts = blogList.sort(
+	(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+);
+// Add other sorting as needed, e.g., papers by year
+
+const pageTitle = "Nick Hagar | Research, Code, Writing";
+const pageDescription =
+	"Personal website of Nick Hagar, postdoctoral scholar focusing on collective attention, generative AI, and computational journalism. Explore recent work, projects, and publications.";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<MainLayout title={pageTitle} description={pageDescription}>
+	<div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl py-8 md:py-12">
+		<Header />
+
+		<main class="mt-12 space-y-16 md:space-y-24">
+			<!-- 
+        Placeholder for sections. We will build these components next.
+        The data is passed as props to these components.
+      -->
+		</main>
+	</div>
+</MainLayout>

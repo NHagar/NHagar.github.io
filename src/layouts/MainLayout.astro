@@ -1,0 +1,83 @@
+---
+// src/layouts/MainLayout.astro
+import "../styles/global.css"; // Import global styles, Tailwind's base styles are injected here
+
+// Props for the layout, e.g., title for the page
+interface Props {
+	title: string;
+	description?: string; // Optional description for meta tags
+}
+
+const {
+	title,
+	description = "Nick Hagar - Postdoctoral scholar researching collective attention, generative AI, and computational journalism.",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+
+		{
+			/* Favicon - using your existing one, but you might want to update it */
+		}
+		<link
+			rel="icon"
+			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏃</text></svg>"
+		/>
+
+		{/* Canonical URL */}
+		<link rel="canonical" href={canonicalURL} />
+
+		{/* Google Fonts: Inter */}
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+			rel="stylesheet"
+		/>
+
+		{/* Open Graph / Social Media Meta Tags (Basic Example) */}
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		{
+			/* <meta property="og:image" content={new URL('/images/social-preview.png', Astro.site)} /> You'll need to create this image */
+		}
+
+		{/* Twitter Card Meta Tags (Basic Example) */}
+		<meta name="twitter:card" content="summary_large_image" />
+		{/* <meta name="twitter:site" content="@yourtwitterhandle" /> */}
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		{
+			/* <meta name="twitter:image" content={new URL('/images/social-preview.png', Astro.site)} /> You'll need to create this image */
+		}
+
+		{/* Astro will inject its styles and scripts here */}
+	</head>
+	<body class="bg-background text-text-primary font-sans antialiased">
+		<slot />
+		{/* Page content will be injected here */}
+
+		<style is:global>
+			/* Small CSS reset/normalize additions if needed, or specific global styles */
+			/* For example, ensuring images are responsive by default */
+			img,
+			picture,
+			video,
+			canvas,
+			svg {
+				display: block;
+				max-width: 100%;
+			}
+		</style>
+	</body>
+</html>
