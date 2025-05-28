@@ -1,0 +1,34 @@
+# src/data/papers.yaml
+# Schema:
+# - title: String
+#   authors: Array of Strings (or a single string if preferred, e.g., "Nick Hagar, Co-author Name")
+#   type: String (e.g., "Journal Article", "Conference Paper", "Invited Talk")
+#   venue: String (Conference, Journal, Preconference name)
+#   year: Number
+#   link: String (URL to PDF, DOI, or publication page) - Optional
+
+- title: "Tiny Tools for Big Impact: Local and Lightweight LLMs for Journalists"
+  authors: ["Nick Hagar", "Mandi Cai", "Jeremy Gilbert"]
+  type: "Conference Session"
+  venue: "SRCCON (Conference on Community and Collaboration)"
+  year: 2025
+  link: "https://2025.srccon.org/schedule/#_session-tiny-tools-big-impact"
+
+- title: "Good enough news? Model substitution for local reporting"
+  authors: ["Nick Hagar", "Sachita Nishal"]
+  type: "Conference Paper"
+  venue: "ICA (International Communication Association) Preconference"
+  year: 2025
+
+- title: "Practical Datasets for Analyzing LLM Corpora Derived from Common Crawl"
+  authors: ["Nick Hagar", "Jack Bandy"]
+  type: "Conference Paper"
+  venue: "ICWSM (International AAAI Conference on Web and Social Media)"
+  year: 2025
+
+- title: "Harnessing AI in business journalism: How to transform an existential threat into a competitive advantage"
+  authors: ["Dylan Freedman", "Nick Hagar", "Mago Torres"]
+  type: "Invited Talk"
+  venue: "SABEW25 (Society for Advancing Business Editing and Writing)"
+  year: 2025
+  link: "https://sabew25.sched.com/event/1wUQ8/harnessing-ai-in-business-journalism-how-to-transform-an-existential-threat-into-a-competitive-advantage"

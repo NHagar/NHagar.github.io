@@ -1,0 +1,26 @@
+# src/data/blog.yaml
+# Schema:
+# - title: String
+#   date: String (YYYY-MM-DD format for sorting)
+#   link: String (URL to the blog post)
+#   publication: String (e.g., "Generative AI in the Newsroom blog", "Substack") - Optional
+
+- title: "AI Research Assistants: A Comparative Analysis"
+  date: "2025-03-26"
+  link: "https://attentionmarkets.substack.com/p/ai-research-assistants-a-comparative"
+  publication: "Substack"
+
+- title: "New release: Substack API Python package 1.0"
+  date: "2025-03-02"
+  link: "https://attentionmarkets.substack.com/p/new-release-substack-api-python-package"
+  publication: "Substack"
+
+- title: "AI Overviews, Chatbots, and News Traffic: The Story So Far"
+  date: "2025-03-26"
+  link: "https://generative-ai-newsroom.com/ai-overviews-chatbots-and-news-traffic-the-story-so-far-c010b3bf53cb"
+  publication: "Generative AI in the Newsroom blog"
+
+- title: "GenAI as News Gatekeeper? What Traffic Data Shows"
+  date: "2025-03-06"
+  link: "https://generative-ai-newsroom.com/genai-as-news-gatekeeper-what-traffic-data-shows-783795ba2103"
+  publication: "Generative AI in the Newsroom blog"
