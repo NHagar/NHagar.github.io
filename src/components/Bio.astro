@@ -1,6 +1,6 @@
 ---
 const bioParagraphs = [
-    "Hello! I'm a postdoctoral scholar at Northwestern University, working on the Generative AI in the Newsroom Initiative. I've worked at the New York Times, Meta, and Patreon. I also have a PhD from Northwestern University, where I was part of the Computational Journalism Lab.",
+    "I'm a postdoctoral scholar at Northwestern University, working on the Generative AI in the Newsroom Initiative. I've worked at the New York Times, Meta, and Patreon. I also have a PhD from Northwestern University, where I was part of the Computational Journalism Lab.",
     "I research how collective attention works in large, complex systems. I use data science and engineering to study how people discover information online, why things get popular, and what influences content creators. My first love is journalism, but I also study large social platforms (TikTok, Reddit, Facebook) and other attention markets (Netflix, Substack).",
     "Before grad school, I worked in audience development and analytics at Fusion Media Group, Digiday, Pacific Standard and the Dallas Morning News. I've written for Pacific Standard, the Christian Science Monitor, McSweeney's Internet Tendency and others. I graduated from the Medill School of Journalism and am originally from Fort Wayne, Indiana.",
 ];
@@ -8,7 +8,7 @@ const bioParagraphs = [
 
 <section class="animate-section">
     <div
-        class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-50/50 via-white to-accent-purple/5 p-8 md:p-10 shadow-depth-md border border-white/50"
+        class="relative overflow-hidden rounded-3xl p-8 md:p-10 shadow-depth-md border border-white/50"
     >
         <!-- Decorative elements -->
         <div
@@ -32,9 +32,9 @@ const bioParagraphs = [
                 {
                     bioParagraphs.map((paragraph, index) => (
                         <p class="relative group">
-                            <span class="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-primary-400 to-accent-purple rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <span class="absolute left-0 top-0 w-1 h-full rounded-full opacity-0" />
                             <span
-                                class="block pl-0 group-hover:pl-4 transition-all duration-300"
+                                class="block pl-0 "
                                 set:html={paragraph
                                     .replace(
                                         /Generative AI in the Newsroom Initiative/g,

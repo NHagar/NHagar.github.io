@@ -32,7 +32,7 @@ const sortedUpdates = updates.sort(
                 <h2 id="updates-heading" class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-purple bg-clip-text text-transparent">
                     Recent Updates
                 </h2>
-                <div class="h-0.5 flex-1 ml-6 bg-gradient-to-r from-primary-200 to-transparent"></div>
+
             </div>
             
             {sortedUpdates && sortedUpdates.length > 0 ? (
@@ -45,14 +45,8 @@ const sortedUpdates = updates.sort(
                             <!-- Gradient overlay -->
                             <div class="absolute inset-0 bg-gradient-to-r from-primary-50/50 via-transparent to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             
-                            <!-- Timeline connector (for visual interest) -->
-                            {index < sortedUpdates.length - 1 && (
-                                <div class="absolute left-9 top-16 bottom-0 w-0.5 bg-gradient-to-b from-primary-200 to-transparent"></div>
-                            )}
-                            
                             <!-- Emoji container with glow effect -->
                             <div class="relative flex-shrink-0">
-                                <div class="absolute inset-0 bg-gradient-to-br from-primary-400 to-accent-purple opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-300"></div>
                                 <span class="relative text-2xl sm:text-3xl block p-2">
                                     {update.data.emoji}
                                 </span>
