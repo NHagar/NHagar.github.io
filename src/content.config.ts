@@ -10,7 +10,7 @@ const blog = defineCollection({
     schema: z.object({
         title: z.string(),
         id: z.string(),
-        date: z.string(),
+        date: z.date(),
         link: z.string(),
         publication: z.string().optional()
     })
@@ -24,7 +24,7 @@ const mentions = defineCollection({
         link: z.string(),
         work_mentioned_title: z.string().optional(),
         work_mentioned_link: z.string().optional(),
-        date: z.string().optional()
+        date: z.date().optional()
     })
 });
 const papers = defineCollection({
@@ -45,7 +45,7 @@ const prototypes = defineCollection({
         name: z.string(),
         id: z.string(),
         description: z.string(),
-        link: z.string().optional(),
+        link: z.string(),
         image: z.string().optional(),
         tags: z.array(z.string()).optional()
     })
@@ -64,7 +64,7 @@ const updates = defineCollection({
     schema: z.object({
         emoji: z.string(),
         id: z.string(),
-        date: z.string(),
+        date: z.date(),
         description: z.string(),
         link: z.string().optional(),
     })

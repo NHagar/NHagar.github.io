@@ -1,0 +1,79 @@
+---
+// src/components/PapersSection.astro
+import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    papers: CollectionEntry<"papers">[];
+}
+
+const { papers } = Astro.props;
+
+// Optional: Sort papers, e.g., by year descending, then by title or a specific order field
+const sortedPapers = papers.sort((a, b) => {
+    if (b.data.year !== a.data.year) {
+        return b.data.year - a.data.year;
+    }
+    // Optional: secondary sort by title if years are the same
+    // return a.data.title.localeCompare(b.data.title);
+    return 0; // Or maintain original order for same year if no secondary sort
+});
+---
+
+<section aria-labelledby="papers-heading">
+    <h2
+        id="papers-heading"
+        class="text-2xl sm:text-3xl font-bold text-text-primary mb-6"
+    >
+        Academic Papers & Talks
+    </h2>
+    {
+        sortedPapers && sortedPapers.length > 0 ? (
+            <ul class="space-y-6">
+                {sortedPapers.map((paper) => (
+                    <li class="pb-4 border-b border-border-color/20 last:border-b-0">
+                        <h3 class="text-lg font-semibold text-text-primary mb-1">
+                            {paper.data.title}
+                        </h3>
+                        <p class="text-sm text-text-secondary mb-1">
+                            <span class="font-medium">Authors:</span>{" "}
+                            {paper.data.authors.join(", ")}
+                        </p>
+                        <p class="text-sm text-text-secondary mb-2">
+                            <span class="font-medium">Venue:</span>{" "}
+                            {paper.data.venue}, {paper.data.year}
+                        </p>
+                        {paper.data.link && (
+                            <a
+                                href={paper.data.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-sm text-primary-accent hover:underline inline-flex items-center group"
+                            >
+                                Read Paper / View Details
+                                <Icon
+                                    name="mdi:arrow-right"
+                                    class="w-4 h-4 ml-1 transition-transform duration-200 ease-in-out group-hover:translate-x-1"
+                                />
+                            </a>
+                        )}
+                    </li>
+                ))}
+            </ul>
+        ) : (
+            <p class="text-text-secondary">
+                No academic papers to display at the moment.
+            </p>
+        )
+    }
+    <p class="mt-6 text-center md:text-left">
+        <a
+            href="https://scholar.google.com/citations?user=UfMYPhEAAAAJ&hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary-accent hover:underline font-medium"
+        >
+            View all on Google Scholar &rarr;
+        </a>
+    </p>
+</section>

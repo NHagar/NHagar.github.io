@@ -1,0 +1,57 @@
+---
+// src/components/Bio.astro
+// This component will display your introductory bio.
+// You can copy and paste your existing bio text here and style it.
+
+const bioParagraphs = [
+    "Hello! I'm a postdoctoral scholar at Northwestern University, working on the Generative AI in the Newsroom Initiative. I've worked at the New York Times, Meta, and Patreon. I also have a PhD from Northwestern University, where I was part of the Computational Journalism Lab.",
+    "I research how collective attention works in large, complex systems. I use data science and engineering to study how people discover information online, why things get popular, and what influences content creators. My first love is journalism, but I also study large social platforms (TikTok, Reddit, Facebook) and other attention markets (Netflix, Substack).",
+    "Before grad school, I worked in audience development and analytics at Fusion Media Group, Digiday, Pacific Standard and the Dallas Morning News. I've written for Pacific Standard, the Christian Science Monitor, McSweeney's Internet Tendency and others. I graduated from the Medill School of Journalism and am originally from Fort Wayne, Indiana.",
+];
+
+// You can add more structured data here if needed, e.g., links within the bio.
+// For links, you might want to pass them as props or define them here.
+// Example:
+// const gainProjectLink = "https://generative-ai-newsroom.com/";
+// const cjLabLink = "https://cj-lab.org/";
+---
+
+<section
+    aria-labelledby="bio-heading"
+    class="space-y-4 text-base sm:text-lg text-text-secondary leading-relaxed"
+>
+    <h2
+        id="bio-heading"
+        class="text-2xl sm:text-3xl font-bold text-text-primary mb-6"
+    >
+        About Me
+    </h2>
+    {
+        bioParagraphs.map((paragraph, index) => (
+            <p
+                set:html={
+                    paragraph
+                        .replace(
+                            /Generative AI in the Newsroom Initiative/g,
+                            `<a href="https://generative-ai-newsroom.com/" class="text-primary-accent hover:underline" target="_blank" rel="noopener noreferrer">Generative AI in the Newsroom Initiative</a>`,
+                        )
+                        .replace(
+                            /Computational Journalism Lab/g,
+                            `<a href="https://cj-lab.org/" class="text-primary-accent hover:underline" target="_blank" rel="noopener noreferrer">Computational Journalism Lab</a>`,
+                        )
+                    /* Add more .replace() calls for other links if needed */
+                }
+            />
+        ))
+    }
+    <!-- 
+    Alternatively, if you prefer more direct HTML for links:
+    <p>
+      Hello! I'm a postdoctoral scholar at Northwestern University, working on the 
+      <a href="https://generative-ai-newsroom.com/" class="text-primary-accent hover:underline" target="_blank" rel="noopener noreferrer">Generative AI in the Newsroom Initiative</a>. 
+      I've worked at the New York Times, Meta, and Patreon. I also have a PhD from Northwestern University, where I was part of the 
+      <a href="https://cj-lab.org/" class="text-primary-accent hover:underline" target="_blank" rel="noopener noreferrer">Computational Journalism Lab</a>.
+    </p>
+    ...etc.
+   -->
+</section>

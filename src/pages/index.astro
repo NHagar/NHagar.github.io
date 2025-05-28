@@ -4,25 +4,25 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 // Import Components (we will create these in subsequent phases)
 import Header from "../components/Header.astro";
-// import Bio from '../components/Bio.astro';
-// import ResearchFocus from '../components/ResearchFocus.astro';
-// import UpdatesSection from '../components/UpdatesSection.astro';
-// import SoftwareSection from '../components/SoftwareSection.astro';
-// import PapersSection from '../components/PapersSection.astro';
-// import BlogSection from '../components/BlogSection.astro';
-// import MentionsSection from '../components/MentionsSection.astro';
-// import PrototypesSection from '../components/PrototypesSection.astro';
+import Bio from "../components/Bio.astro";
+import ResearchFocus from "../components/ResearchFocus.astro";
+import UpdatesSection from "../components/UpdatesSection.astro";
+import SoftwareSection from "../components/SoftwareSection.astro";
+import PapersSection from "../components/PapersSection.astro";
+import BlogSection from "../components/BlogSection.astro";
+import MentionsSection from "../components/MentionsSection.astro";
+import PrototypesSection from "../components/PrototypesSection.astro";
 // import Footer from '../components/Footer.astro'; // Optional footer
 
 // Import Data
 import { getCollection } from "astro:content";
 
-const blogs = await getCollection("blog");
-const papers = await getCollection("papers");
-const software = await getCollection("software");
-const prototypes = await getCollection("prototypes");
-const mentions = await getCollection("mentions");
-const updates = await getCollection("updates");
+const blogsCollection = await getCollection("blog"); // Renamed to avoid conflict if you have a 'blogs' variable
+const papersCollection = await getCollection("papers");
+const softwareCollection = await getCollection("software");
+const prototypesCollection = await getCollection("prototypes");
+const mentionsCollection = await getCollection("mentions");
+const updatesCollection = await getCollection("updates"); // Renamed for clarity
 
 const pageTitle = "Nick Hagar | Research, Code, Writing";
 const pageDescription =
@@ -34,10 +34,14 @@ const pageDescription =
 		<Header />
 
 		<main class="mt-12 space-y-16 md:space-y-24">
-			<!-- 
-        Placeholder for sections. We will build these components next.
-        The data is passed as props to these components.
-      -->
+			<Bio />
+			<ResearchFocus />
+			<UpdatesSection updates={updatesCollection} />
+			<SoftwareSection softwareItems={softwareCollection} />
+			<PapersSection papers={papersCollection} />
+			<BlogSection posts={blogsCollection} />
+			<MentionsSection mentions={mentionsCollection} />
+			<PrototypesSection prototypes={prototypesCollection} />
 		</main>
 	</div>
 </MainLayout>

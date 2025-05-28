@@ -1,0 +1,106 @@
+---
+// src/components/BlogSection.astro
+import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    posts: CollectionEntry<"blog">[];
+}
+
+const { posts } = Astro.props;
+
+// Sort posts by date descending
+const sortedPosts = posts.sort(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+
+function formatDate(date: Date): string {
+    return new Intl.DateTimeFormat("en-US", {
+        month: "long",
+        year: "numeric",
+        day: "numeric",
+    }).format(date);
+}
+---
+
+<section aria-labelledby="blog-heading">
+    <h2
+        id="blog-heading"
+        class="text-2xl sm:text-3xl font-bold text-text-primary mb-6"
+    >
+        Blog & Newsletter
+    </h2>
+    {
+        sortedPosts && sortedPosts.length > 0 ? (
+            <ul class="space-y-5">
+                {sortedPosts.map((post) => (
+                    <li class="pb-4 border-b border-border-color/20 last:border-b-0">
+                        <h3 class="text-lg font-semibold text-text-primary mb-1 hover:text-primary-accent transition-colors">
+                            <a
+                                href={post.data.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {post.data.title}
+                            </a>
+                        </h3>
+                        <p class="text-sm text-text-secondary">
+                            {formatDate(post.data.date)}
+                            {post.data.publication && (
+                                <span class="text-text-secondary before:content-['•'] before:mx-2">
+                                    {post.data.publication}
+                                </span>
+                            )}
+                        </p>
+                        {/* Optional: Add a short description/snippet if you include it in your blog schema 
+          {post.data.description && (
+            <p class="text-sm text-text-secondary mt-1 leading-relaxed">
+              {post.data.description}
+            </p>
+          )}
+          */}
+                        <a
+                            href={post.data.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-sm text-primary-accent hover:underline inline-flex items-center group mt-2"
+                        >
+                            Read Post
+                            <Icon
+                                name="mdi:arrow-right"
+                                class="w-4 h-4 ml-1 transition-transform duration-200 ease-in-out group-hover:translate-x-1"
+                            />
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        ) : (
+            <p class="text-text-secondary">
+                No blog posts to display at the moment.
+            </p>
+        )
+    }
+
+    <div class="mt-6 space-y-2 text-center md:text-left">
+        <p>
+            <a
+                href="https://generative-ai-newsroom.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-primary-accent hover:underline font-medium"
+            >
+                Read more on the Generative AI in the Newsroom blog &rarr;
+            </a>
+        </p>
+        <p>
+            <a
+                href="https://attentionmarkets.substack.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-primary-accent hover:underline font-medium"
+            >
+                Subscribe to Attention Markets on Substack &rarr;
+            </a>
+        </p>
+    </div>
+</section>

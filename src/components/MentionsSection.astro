@@ -1,0 +1,102 @@
+---
+// src/components/MentionsSection.astro
+import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    mentions: CollectionEntry<"mentions">[];
+}
+
+const { mentions } = Astro.props;
+
+// Sort mentions by date descending, if available
+const sortedMentions = mentions.sort((a, b) => {
+    if (a.data.date && b.data.date) {
+        return b.data.date.getTime() - a.data.date.getTime();
+    }
+    if (a.data.date && !b.data.date) return -1; // a has date, b doesn't, so a comes first (more recent)
+    if (!a.data.date && b.data.date) return 1; // b has date, a doesn't, so b comes first
+    return 0; // If no dates or same date, maintain original order or sort by title
+});
+
+function formatDate(date: Date): string {
+    return new Intl.DateTimeFormat("en-US", {
+        month: "long",
+        year: "numeric",
+        day: "numeric",
+    }).format(date);
+}
+---
+
+<section aria-labelledby="mentions-heading">
+    <h2
+        id="mentions-heading"
+        class="text-2xl sm:text-3xl font-bold text-text-primary mb-6"
+    >
+        Media Mentions & Appearances
+    </h2>
+    {
+        sortedMentions && sortedMentions.length > 0 ? (
+            <ul class="space-y-5">
+                {sortedMentions.map((mention) => (
+                    <li class="pb-4 border-b border-border-color/20 last:border-b-0">
+                        <h3 class="text-lg font-semibold text-text-primary mb-1 hover:text-primary-accent transition-colors">
+                            <a
+                                href={mention.data.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {mention.data.title}
+                            </a>
+                        </h3>
+                        <p class="text-sm text-text-secondary">
+                            <span class="font-medium">
+                                {mention.data.venue}
+                            </span>
+                            {mention.data.date && (
+                                <span class="before:content-['•'] before:mx-2">
+                                    {formatDate(mention.data.date)}
+                                </span>
+                            )}
+                        </p>
+                        {mention.data.work_mentioned_title && (
+                            <p class="text-xs text-text-secondary mt-1">
+                                Mentioning:
+                                {mention.data.work_mentioned_link ? (
+                                    <a
+                                        href={mention.data.work_mentioned_link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="italic hover:underline"
+                                    >
+                                        {mention.data.work_mentioned_title}
+                                    </a>
+                                ) : (
+                                    <span class="italic">
+                                        {mention.data.work_mentioned_title}
+                                    </span>
+                                )}
+                            </p>
+                        )}
+                        <a
+                            href={mention.data.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-sm text-primary-accent hover:underline inline-flex items-center group mt-2"
+                        >
+                            View Mention
+                            <Icon name="mdi:open-in-new" class="w-4 h-4 ml-1" />
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        ) : (
+            <p class="text-text-secondary">
+                No media mentions to display at the moment.
+            </p>
+        )
+    }
+    <p class="mt-6 text-text-secondary text-sm text-center md:text-left">
+        For inquiries, please reach out to nhagar[at]northwestern.edu.
+    </p>
+</section>

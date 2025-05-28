@@ -1,0 +1,47 @@
+---
+// src/components/SoftwareSection.astro
+import type { CollectionEntry } from "astro:content";
+import SoftwareCard from "./SoftwareCard.astro"; // Import the card component
+
+interface Props {
+    softwareItems: CollectionEntry<"software">[];
+}
+
+const { softwareItems } = Astro.props;
+
+// Optional: Sort software items if needed, e.g., by stars or a publishDate field
+// const sortedSoftware = softwareItems.sort((a, b) => (b.data.stars || 0) - (a.data.stars || 0));
+// For now, we'll use the order they come from getCollection (usually alphabetical by filename)
+---
+
+<section aria-labelledby="software-heading">
+    <h2
+        id="software-heading"
+        class="text-2xl sm:text-3xl font-bold text-text-primary mb-8"
+    >
+        Software & Code
+    </h2>
+    {
+        softwareItems && softwareItems.length > 0 ? (
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+                {softwareItems.map((itemEntry) => (
+                    <SoftwareCard item={itemEntry.data} />
+                ))}
+            </div>
+        ) : (
+            <p class="text-text-secondary">
+                No software projects to display at the moment.
+            </p>
+        )
+    }
+    <p class="mt-8 text-center md:text-left">
+        <a
+            href="https://github.com/NHagar"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary-accent hover:underline font-medium"
+        >
+            Explore all my projects on GitHub &rarr;
+        </a>
+    </p>
+</section>

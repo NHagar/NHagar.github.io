@@ -1,0 +1,76 @@
+---
+// src/components/UpdatesSection.astro
+import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components"; // For a potential link icon
+
+interface Props {
+    updates: CollectionEntry<"updates">[]; // Expects an array of update entries
+}
+
+const { updates } = Astro.props;
+
+// Helper function to format date (optional, can also format directly in template)
+function formatDate(date: Date): string {
+    return new Intl.DateTimeFormat("en-US", {
+        month: "long",
+        year: "numeric",
+        day: "numeric",
+    }).format(date);
+}
+---
+
+<section aria-labelledby="updates-heading">
+    <h2
+        id="updates-heading"
+        class="text-2xl sm:text-3xl font-bold text-text-primary mb-6"
+    >
+        Recent Updates
+    </h2>
+    {
+        updates && updates.length > 0 ? (
+            <ul class="space-y-5">
+                {updates.map((update) => (
+                    <li class="flex items-start space-x-3 p-4 border border-border-color/30 rounded-lg bg-background shadow-sm hover:shadow-depth-sm transition-shadow duration-200">
+                        <span class="text-xl sm:text-2xl pt-0.5">
+                            {update.data.emoji}
+                        </span>
+                        <div class="flex-1">
+                            <p class="text-sm text-text-secondary font-medium">
+                                {formatDate(update.data.date)}
+                            </p>
+                            <p class="text-base text-text-primary mt-1 leading-relaxed">
+                                <Fragment
+                                    set:html={
+                                        // Basic sanitization or Markdown processing could be added here if descriptions contain HTML/Markdown
+                                        // For now, assuming plain text or simple HTML like <em>
+                                        update.data.description.replace(
+                                            /\*(.*?)\*/g,
+                                            "<em>$1</em>",
+                                        ) // Example: Convert *text* to <em>text</em>
+                                    }
+                                />
+                                {update.data.link && (
+                                    <a
+                                        href={update.data.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="inline-flex items-center text-primary-accent hover:underline ml-2 text-sm"
+                                        aria-label={`Read more about ${update.data.description.substring(0, 30)}...`}
+                                    >
+                                        <Icon
+                                            name="mdi:open-in-new"
+                                            class="w-4 h-4 mr-1"
+                                        />
+                                        <span>Link</span>
+                                    </a>
+                                )}
+                            </p>
+                        </div>
+                    </li>
+                ))}
+            </ul>
+        ) : (
+            <p class="text-text-secondary">No recent updates to display.</p>
+        )
+    }
+</section>

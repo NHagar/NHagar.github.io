@@ -1,0 +1,37 @@
+---
+// src/components/PrototypesSection.astro
+import type { CollectionEntry } from "astro:content";
+import PrototypeCard from "./PrototypeCard.astro";
+
+interface Props {
+    prototypes: CollectionEntry<"prototypes">[];
+}
+
+const { prototypes } = Astro.props;
+
+// Optional: Sort prototypes if needed, e.g., by an 'order' field or name
+// const sortedPrototypes = prototypes.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+// For now, we'll use the order they come from getCollection
+---
+
+<section aria-labelledby="prototypes-heading">
+    <h2
+        id="prototypes-heading"
+        class="text-2xl sm:text-3xl font-bold text-text-primary mb-8"
+    >
+        Prototypes & Projects
+    </h2>
+    {
+        prototypes && prototypes.length > 0 ? (
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+                {prototypes.map((itemEntry) => (
+                    <PrototypeCard item={itemEntry.data} />
+                ))}
+            </div>
+        ) : (
+            <p class="text-text-secondary">
+                No prototypes or projects to display at the moment.
+            </p>
+        )
+    }
+</section>

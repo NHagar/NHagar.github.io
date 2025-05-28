@@ -11,5 +11,5 @@
   id: "llm-data-schema-generator"
   description: "An early attempt to automatically generate schema for structured outputs with LLMs."
   link: "https://llm-schema-generation.streamlit.app/"
-  image: "/images/structured_outputs.png"
+  image: "../assets/images/prototypes/structured_outputs.png"
   tags: ["LLM", "Document Processing"]
