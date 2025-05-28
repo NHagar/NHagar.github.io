@@ -25,38 +25,32 @@ const researchAreas = [
 ];
 ---
 
-<section class="animate-section">
-    <div class="relative overflow-hidden rounded-3xl p-8 md:p-12 shadow-depth-lg">
-
-        
-        <div class="relative">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-center md:text-left bg-gradient-to-r from-primary-600 to-accent-purple bg-clip-text text-transparent">
-                My Research Focus
+<section class="animate-slide-up">
+    <div class="relative rounded-lg p-8 md:p-10 shadow-card border-academic bg-white">
+        <div>
+            <h2 class="text-2xl sm:text-3xl font-semibold mb-6 text-text-primary academic-heading">
+                Research Focus
             </h2>
-            <p class="text-base sm:text-lg text-text-secondary leading-relaxed mb-8 text-center md:text-left">
+            <p class="text-base sm:text-lg text-text-secondary academic-text leading-relaxed mb-8">
                 {researchFocusIntro}
             </p>
             
             <div class="grid md:grid-cols-2 gap-6">
                 {researchAreas.map((area, index) => (
                     <div 
-                        class="group relative overflow-hidden rounded-xl bg-white/70 backdrop-blur-sm border border-white/50 shadow-sm hover:shadow-lg transition-all duration-300 hover-lift"
-                        style={`animation-delay: ${0.1 * index}s;`}
+                        class="group relative rounded-lg bg-background-secondary border-academic shadow-card hover-lift p-6"
+                        style={`animation-delay: ${0.05 * index}s;`}
                     >
-                        <!-- Hover gradient -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-primary-50 to-accent-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        
-                        <div class="relative p-6">
-                            <div class="flex items-start gap-3">
-                                <span class="text-2xl">{area.icon}</span>
-                                <div>
-                                    <h3 class="text-lg font-semibold text-primary-600 mb-2">
-                                        {area.title}
-                                    </h3>
-                                    <p class="text-sm text-text-secondary leading-normal">
-                                        {area.description}
-                                    </p>
-                                </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-xl flex-shrink-0">{area.icon}</span>
+                            <div>
+                                <h3 class="text-lg font-medium text-text-primary academic-heading mb-2 group-hover:text-primary-600 transition-colors">
+                                    {area.title}
+                                </h3>
+                                <p class="text-sm text-text-secondary academic-text leading-relaxed">
+                                    {area.description}
+                                </p>
+                            </div>
                             </div>
                         </div>
                     </div>

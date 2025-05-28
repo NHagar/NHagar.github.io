@@ -14,15 +14,11 @@ const { prototypes } = Astro.props;
 ---
 
 <section aria-labelledby="prototypes-heading" class="animate-section relative">
-    <!-- Background decoration -->
-    <div class="absolute -top-20 -left-20 w-64 h-64 bg-gradient-to-br from-accent-purple/20 to-accent-pink/20 rounded-full blur-3xl opacity-30"></div>
-    <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-gradient-to-br from-primary-300/20 to-accent-orange/20 rounded-full blur-3xl opacity-30"></div>
-    
     <div class="relative">
-        <!-- Section header with icon -->
+        <!-- Section header -->
         <div class="flex items-center justify-between mb-10">
             <div class="flex items-center gap-4">
-                <h2 id="prototypes-heading" class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-purple bg-clip-text text-transparent">
+                <h2 id="prototypes-heading" class="text-2xl sm:text-3xl font-semibold text-text-primary academic-heading">
                     Prototypes
                 </h2>
             </div>
@@ -45,13 +41,13 @@ const { prototypes } = Astro.props;
             </>
         ) : (
             <div class="text-center py-12">
-                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary-100 to-accent-purple/20 mb-4">
-                    <Icon name="mdi:flask-empty" class="w-8 h-8 text-primary-600" />
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-50 border border-gray-200 mb-4">
+                    <Icon name="mdi:flask-empty" class="w-8 h-8 text-text-secondary" />
                 </div>
-                <p class="text-text-secondary">
+                <p class="text-text-secondary academic-text">
                     No prototypes or projects to display at the moment.
                 </p>
-                <p class="text-sm text-text-tertiary mt-2">
+                <p class="text-sm text-text-tertiary mt-2 academic-text">
                     Check back soon for new experiments!
                 </p>
             </div>

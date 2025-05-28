@@ -9,45 +9,32 @@ interface Props {
 const { item } = Astro.props;
 ---
 
-<div class="group relative hover-lift">
-    <!-- Gradient border effect -->
-    <div
-        class="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary-400 to-accent-purple opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"
-    >
-    </div>
-
+<div class="group relative">
     <!-- Card content -->
     <div
-        class="relative bg-white rounded-2xl border border-gray-100 shadow-md group-hover:shadow-xl transition-all duration-300 overflow-hidden"
+        class="bg-white rounded-lg border-academic shadow-card hover:shadow-lg transition-all duration-300 overflow-hidden"
     >
-        <!-- Decorative gradient mesh -->
-        <div
-            class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-100 to-accent-purple/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        >
-        </div>
-
-        <div class="relative p-6 flex flex-col h-full">
+        <div class="p-6 flex flex-col h-full">
             <div class="flex-grow">
                 <h3 class="text-xl font-semibold mb-2">
                     <a
                         href={item.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 text-text-primary group-hover:text-primary-600 transition-colors duration-300"
+                        class="inline-flex items-center gap-2 text-text-primary hover:text-primary-600 transition-colors duration-300 academic-heading"
                     >
                         <span class="relative">
                             {item.name}
-                            <span
-                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-accent-purple group-hover:w-full transition-all duration-300"
-                            ></span>
                         </span>
                         <Icon
                             name="mdi:open-in-new"
-                            class="w-4 h-4 text-text-secondary group-hover:text-primary-600 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                            class="w-4 h-4 text-text-secondary hover:text-primary-600 transition-colors duration-300"
                         />
                     </a>
                 </h3>
-                <p class="text-sm text-text-secondary leading-relaxed">
+                <p
+                    class="text-sm text-text-secondary leading-relaxed academic-text"
+                >
                     {item.description}
                 </p>
             </div>
@@ -57,7 +44,7 @@ const { item } = Astro.props;
                 class="mt-4 flex items-center gap-2 text-sm text-primary-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             >
                 <span>Explore project</span>
-                <Icon name="mdi:arrow-right" class="w-4 h-4 animate-pulse" />
+                <Icon name="mdi:arrow-right" class="w-4 h-4" />
             </div>
         </div>
     </div>

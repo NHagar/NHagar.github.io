@@ -23,7 +23,7 @@ function formatDate(date: Date): string {
     }).format(date);
 }
 
-const venueLogos = {
+const venueLogos: Record<string, string> = {
     "Business Insider": "🏢",
     "The New Yorker": "📰",
     "Nieman Lab": "🔬",
@@ -31,11 +31,11 @@ const venueLogos = {
 };
 ---
 
-<section aria-labelledby="mentions-heading" class="animate-section">
+<section aria-labelledby="mentions-heading" class="animate-slide-up">
     <div class="flex items-center justify-between mb-8">
         <h2
             id="mentions-heading"
-            class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-purple bg-clip-text text-transparent"
+            class="text-2xl sm:text-3xl font-semibold text-text-primary academic-heading"
         >
             Media Mentions & Appearances
         </h2>
@@ -43,11 +43,11 @@ const venueLogos = {
 
     {
         sortedMentions && sortedMentions.length > 0 ? (
-            <div class="grid gap-6">
+            <div class="grid gap-4">
                 {sortedMentions.map((mention, index) => (
                     <article
-                        class="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover-lift"
-                        style={`animation-delay: ${0.1 * index}s;`}
+                        class="group relative rounded-lg bg-white border-academic shadow-card hover-lift"
+                        style={`animation-delay: ${0.05 * index}s;`}
                     >
                         <div class="p-6">
                             <div class="flex items-start gap-4">
@@ -71,13 +71,13 @@ const venueLogos = {
                                         </a>
                                     </h3>
 
-                                    <div class="flex items-center gap-3 text-sm text-text-secondary mb-2">
+                                    <div class="flex items-center gap-3 text-sm text-text-secondary mb-2 academic-text">
                                         <span class="font-medium text-primary-600">
                                             {mention.data.venue}
                                         </span>
                                         {mention.data.date && (
                                             <>
-                                                <span class="text-primary-300">
+                                                <span class="text-text-tertiary">
                                                     •
                                                 </span>
                                                 <time
@@ -92,7 +92,7 @@ const venueLogos = {
                                     </div>
 
                                     {mention.data.work_mentioned_title && (
-                                        <div class="mt-3 p-3 rounded-lg bg-gradient-to-r from-primary-50 to-accent-purple/10 border border-primary-100">
+                                        <div class="mt-3 p-3 rounded-lg bg-gray-50 border border-gray-200">
                                             <p class="text-xs font-medium text-primary-600 mb-1">
                                                 Featured Work:
                                             </p>
@@ -105,7 +105,7 @@ const venueLogos = {
                                                     }
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    class="text-sm text-text-primary hover:text-primary-600 italic transition-colors duration-300"
+                                                    class="text-sm text-text-primary hover:text-primary-600 italic transition-colors duration-300 academic-text"
                                                 >
                                                     "
                                                     {
@@ -115,7 +115,7 @@ const venueLogos = {
                                                     "
                                                 </a>
                                             ) : (
-                                                <span class="text-sm text-text-primary italic">
+                                                <span class="text-sm text-text-primary italic academic-text">
                                                     "
                                                     {
                                                         mention.data
@@ -133,16 +133,18 @@ const venueLogos = {
                 ))}
             </div>
         ) : (
-            <p class="text-text-secondary text-center py-8">
+            <p class="text-text-secondary text-center py-8 academic-text">
                 No media mentions to display at the moment.
             </p>
         )
     }
 
     <div
-        class="mt-8 p-6 rounded-2xl bg-gradient-to-r from-primary-50 to-accent-purple/10 text-center"
+        class="mt-8 p-6 rounded-lg bg-gray-50 border border-gray-200 text-center"
     >
-        <p class="text-text-secondary flex items-center justify-center gap-2">
+        <p
+            class="text-text-secondary flex items-center justify-center gap-2 academic-text"
+        >
             <Icon name="mdi:email" class="w-5 h-5 text-primary-600" />
             For media inquiries: <span class="font-medium text-primary-600"
                 >nicholas.hagar[at]northwestern.edu</span

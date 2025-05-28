@@ -16,10 +16,10 @@ const languages = ["Python", "TypeScript", "JavaScript"]; // You could extract t
 
 <section aria-labelledby="software-heading" class="animate-section relative">    
     <div class="relative">
-        <!-- Section header with animated icon -->
+        <!-- Section header -->
         <div class="flex items-center justify-between mb-10">
             <div class="flex items-center gap-4">
-                <h2 id="software-heading" class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 via-accent-purple to-accent-pink bg-clip-text text-transparent animate-gradient bg-300%">
+                <h2 id="software-heading" class="text-2xl sm:text-3xl font-semibold text-text-primary academic-heading">
                     Software & Code
                 </h2>
             </div>
@@ -40,42 +40,37 @@ const languages = ["Python", "TypeScript", "JavaScript"]; // You could extract t
                     ))}
                 </div>
                 
-                <!-- GitHub CTA with enhanced styling -->
+                <!-- GitHub CTA -->
                 <div class="mt-12 text-center">
-                    <div class="inline-block relative">
-                        <!-- Glow effect -->
-                        <div class="absolute inset-0 from-primary-400 rounded-full blur-lg opacity-50"></div>
-                        
-                        <a
-                            href="https://github.com/NHagar"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="relative group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-gray-900 to-gray-800 text-white font-medium shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5"
-                        >
-                            <Icon name="mdi:github" class="w-6 h-6" />
-                            <span>Explore all projects on GitHub</span>
-                            <Icon name="mdi:arrow-right" class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                        </a>
-                    </div>
+                    <a
+                        href="https://github.com/NHagar"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-3 px-8 py-4 rounded-lg bg-primary-600 text-white font-medium shadow-card hover:bg-primary-700 transition-all duration-300"
+                    >
+                        <Icon name="mdi:github" class="w-6 h-6" />
+                        <span>Explore all projects on GitHub</span>
+                        <Icon name="mdi:arrow-right" class="w-5 h-5" />
+                    </a>
                     
                     <!-- Additional context -->
-                    <p class="mt-6 text-sm text-text-tertiary">
+                    <p class="mt-6 text-sm text-text-tertiary academic-text">
                         Open source contributions and experiments in 
                         <span class="font-medium text-primary-600">data science</span>, 
-                        <span class="font-medium text-accent-purple">web scraping</span>, and 
-                        <span class="font-medium text-accent-pink">journalism tools</span>
+                        <span class="font-medium text-primary-600">web scraping</span>, and 
+                        <span class="font-medium text-primary-600">journalism tools</span>
                     </p>
                 </div>
             </>
         ) : (
             <div class="text-center py-12">
-                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary-100 to-accent-purple/20 mb-4">
-                    <Icon name="mdi:code-off" class="w-8 h-8 text-primary-600" />
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-50 border border-gray-200 mb-4">
+                    <Icon name="mdi:code-off" class="w-8 h-8 text-text-secondary" />
                 </div>
-                <p class="text-text-secondary">
+                <p class="text-text-secondary academic-text">
                     No software projects to display at the moment.
                 </p>
-                <p class="text-sm text-text-tertiary mt-2">
+                <p class="text-sm text-text-tertiary mt-2 academic-text">
                     New code coming soon!
                 </p>
             </div>

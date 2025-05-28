@@ -3,47 +3,62 @@ import { Icon } from "astro-icon/components";
 
 const socialLinks = [
     { name: "GitHub", href: "https://github.com/NHagar/", icon: "mdi:github" },
-    { name: "LinkedIn", href: "https://www.linkedin.com/in/nicholashagar/", icon: "mdi:linkedin" },
-    { name: "Medium", href: "https://medium.com/@nicholashagar", icon: "mdi:medium" },
-    { name: "CV", href: "https://docs.google.com/document/d/10QOEsf53CFH_TFZpLgHHXcIzP5M69dMd/edit", icon: "mdi:file-document-outline", label: "CV" },
+    {
+        name: "LinkedIn",
+        href: "https://www.linkedin.com/in/nicholashagar/",
+        icon: "mdi:linkedin",
+    },
+    {
+        name: "Medium",
+        href: "https://medium.com/@nicholashagar",
+        icon: "mdi:medium",
+    },
+    {
+        name: "CV",
+        href: "https://docs.google.com/document/d/10QOEsf53CFH_TFZpLgHHXcIzP5M69dMd/edit",
+        icon: "mdi:file-document-outline",
+        label: "CV",
+    },
 ];
 
 const name = "Nick Hagar";
-const tagline = "Postdoctoral Scholar @ Northwestern University | Generative AI in the Newsroom Initiative";
+const tagline =
+    "Postdoctoral Scholar @ Northwestern University | Generative AI in the Newsroom Initiative";
 ---
 
-<header class="relative text-center md:text-left animate-fade-in">
-    <!-- Decorative gradient orb -->
-    <div class="absolute -top-10 -left-10 w-32 h-32 bg-gradient-to-br from-primary-400 to-accent-purple opacity-20 rounded-full blur-3xl"></div>
-    
-    <div class="relative md:flex md:items-center md:justify-between">
-        <div>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
-                <span class="bg-gradient-to-r from-primary-600 via-accent-purple to-accent-pink bg-clip-text text-transparent animate-gradient bg-300%">
-                    {name}
-                </span>
+<header class="relative animate-fade-in">
+    <div class="md:flex md:items-start md:justify-between">
+        <div class="mb-6 md:mb-0">
+            <h1
+                class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary academic-heading mb-4"
+            >
+                {name}
             </h1>
-            <p class="mt-3 text-lg sm:text-xl text-text-secondary max-w-2xl">
+            <p
+                class="text-lg sm:text-xl text-text-secondary academic-text max-w-2xl leading-relaxed"
+            >
                 {tagline}
             </p>
         </div>
 
-        <div class="mt-6 md:mt-0 md:ml-6">
-            <div class="inline-flex backdrop-blur-md bg-white/60 rounded-full px-6 py-3 shadow-glass border border-white/20">
-                <div class="flex space-x-5">
-                    {socialLinks.map((link) => (
-                        <a
-                            href={link.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="group relative text-text-secondary hover:text-primary-600 transition-all duration-300"
-                            aria-label={link.label || link.name}
-                        >
-                            <Icon name={link.icon} class="w-6 h-6 sm:w-7 sm:h-7 transition-all duration-300 group-hover:scale-110" />
-                            <!-- Hover glow effect -->
-                            <span class="absolute inset-0 rounded-full bg-primary-400 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></span>
-                        </a>
-                    ))}
+        <div class="flex-shrink-0">
+            <div
+                class="inline-flex bg-white rounded-lg px-4 py-2 shadow-card border-academic"
+            >
+                <div class="flex space-x-4">
+                    {
+                        socialLinks.map((link) => (
+                            <a
+                                href={link.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-text-tertiary hover:text-primary-600 transition-colors duration-200"
+                                aria-label={link.label || link.name}
+                            >
+                                <Icon name={link.icon} class="w-5 h-5" />
+                            </a>
+                        ))
+                    }
                 </div>
             </div>
         </div>
