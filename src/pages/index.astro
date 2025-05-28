@@ -15,21 +15,14 @@ import Header from "../components/Header.astro";
 // import Footer from '../components/Footer.astro'; // Optional footer
 
 // Import Data
-import softwareList from "../data/software.yaml";
-import updatesList from "../data/updates.yaml";
-import papersList from "../data/papers.yaml";
-import blogList from "../data/blog.yaml";
-import mentionsList from "../data/mentions.yaml";
-import prototypesList from "../data/prototypes.yaml";
+import { getCollection } from "astro:content";
 
-// Sort data where necessary (e.g., updates by date)
-const sortedUpdates = updatesList.sort(
-	(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-);
-const sortedBlogPosts = blogList.sort(
-	(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-);
-// Add other sorting as needed, e.g., papers by year
+const blogs = await getCollection("blog");
+const papers = await getCollection("papers");
+const software = await getCollection("software");
+const prototypes = await getCollection("prototypes");
+const mentions = await getCollection("mentions");
+const updates = await getCollection("updates");
 
 const pageTitle = "Nick Hagar | Research, Code, Writing";
 const pageDescription =

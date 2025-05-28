@@ -1,19 +1,23 @@
 # src/data/updates.yaml
 # Schema:
 # - emoji: String (e.g., "🎉", "📄", "🏆")
+#   id: String (Unique identifier, e.g., "ai-research-assistants-comparative")
 #   date: String (YYYY-MM-DD format for sorting)
 #   description: String (The update text)
 #   link: String (URL to paper, announcement, or relevant page, optional)
 
 - emoji: "🎉"
+  id: "ai-research-assistants-comparative"
   date: "2025-04-15"
   description: "I'm co-leading a SRCCON session with Jeremy Gilbert and Mandi Cai, titled 'Tiny Tools for Big Impact: Local and Lightweight LLMs for Journalists'."
   link: "https://2025.srccon.org/schedule/#_session-tiny-tools-big-impact"
 
 - emoji: "📄"
+  id: "good-enough-news-model-substitution"
   date: "2025-04-10"
-  description: "Sachita Nishal and I got a paper accepted to an ICA preconference, titled ''Good enough'' news? Model substitution for local reporting'."
+  description: "Sachita Nishal and I got a paper accepted to an ICA preconference, titled Good enough news? Model substitution for local reporting."
 
 - emoji: "🏆"
+  id: "practical-datasets-llm-corpora"
   date: "2025-03-20"
   description: "My dataset study with Jack Bandy, *Practical Datasets for Analyzing LLM Corpora Derived from Common Crawl*, was accepted at ICWSM!"
