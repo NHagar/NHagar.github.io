@@ -7,16 +7,16 @@
 #   link: String (URL to paper, announcement, or relevant page, optional)
 - emoji: "💬"
   id: "medill-local-news"
-  date: "2025-09-08"
+  date: 2025-09-08
   description: "I led a session at Medill's Local News and AI event on small language models for local journalism."
 
 - emoji: "🎉"
   id: "ai-research-assistants-comparative"
-  date: "2025-04-15"
+  date: 2025-04-15
   description: "I'm co-leading a SRCCON session with Jeremy Gilbert and Mandi Cai, titled 'Tiny Tools for Big Impact: Local and Lightweight LLMs for Journalists'."
   link: "https://2025.srccon.org/schedule/#_session-tiny-tools-big-impact"
 
 - emoji: "📄"
   id: "good-enough-news-model-substitution"
-  date: "2025-04-10"
+  date: 2025-04-10
   description: "Sachita Nishal and I got a paper accepted to an ICA preconference, titled *'Good enough' news? Model substitution for local reporting*."
