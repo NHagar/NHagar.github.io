@@ -5,6 +5,10 @@
 #   date: String (YYYY-MM-DD format for sorting)
 #   description: String (The update text)
 #   link: String (URL to paper, announcement, or relevant page, optional)
+- emoji: "💬"
+  id: "medill-local-news"
+  date: 2025-09-08
+  description: "I led a session at Medill's Local News and AI event on small language models for local journalism."
 
 - emoji: "🎉"
   id: "ai-research-assistants-comparative"
@@ -16,8 +20,3 @@
   id: "good-enough-news-model-substitution"
   date: 2025-04-10
   description: "Sachita Nishal and I got a paper accepted to an ICA preconference, titled *'Good enough' news? Model substitution for local reporting*."
-
-- emoji: "🏆"
-  id: "practical-datasets-llm-corpora"
-  date: 2025-03-20
-  description: "My dataset study with Jack Bandy, *Practical Datasets for Analyzing LLM Corpora Derived from Common Crawl*, was accepted at ICWSM!"
