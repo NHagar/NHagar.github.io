@@ -1,0 +1,32 @@
+{
+  "name": "Nick Hagar",
+  "homeTitle": "Nick Hagar — Research, code, and writing",
+  "tagline": "Researching collective attention, generative AI, and computational journalism.",
+  "description": "Postdoctoral scholar at Northwestern University's Generative AI in the Newsroom Initiative and incoming assistant professor at the University of Minnesota.",
+  "location": "Chicago & Minneapolis",
+  "roles": [
+    "Postdoctoral Scholar, Generative AI in the Newsroom Initiative at Northwestern University",
+    "Incoming Assistant Professor, Hubbard School of Journalism and Mass Communication at the University of Minnesota"
+  ],
+  "social": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/NHagar"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/nicholashagar/"
+    },
+    {
+      "label": "Medium",
+      "url": "https://medium.com/@nicholashagar"
+    },
+    {
+      "label": "CV",
+      "url": "https://docs.google.com/document/d/10QOEsf53CFH_TFZpLgHHXcIzP5M69dMd/edit"
+    }
+  ],
+  "contact": {
+    "note": "For collaborations, speaking, or newsroom consulting, reach out through LinkedIn or drop a line via any of the links above."
+  }
+}

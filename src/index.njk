@@ -1,0 +1,167 @@
+---
+layout: layouts/base.njk
+title: Nick Hagar — Research, code, and writing
+description: Personal site of Nick Hagar, focused on collective attention, generative AI, and computational journalism.
+---
+
+<section class="masthead">
+  <nav class="primary-nav" aria-label="Primary">
+    <a href="#updates">Updates</a>
+    <a href="#research">Research</a>
+    <a href="#writing">Writing</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+  </nav>
+  <div class="masthead__greeting">
+    <h1>{{ site.name }}</h1>
+    <p>{{ site.tagline }}</p>
+  </div>
+  <div class="masthead__roles">
+    {% for role in site.roles %}
+    <div>{{ role }}</div>
+    {% endfor %}
+  </div>
+  <div class="masthead__meta">
+    <span>{{ site.location }}</span>
+    <div class="masthead__links">
+      {% for link in site.social %}
+      <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% set sortedUpdates = updates | sortByDateDesc("date") %}
+{% if sortedUpdates.length %}
+<section id="updates" class="section" aria-labelledby="updates-title">
+  <h2 id="updates-title" class="section__title">Recent updates</h2>
+  <div class="updates">
+    {% for update in sortedUpdates | head(3) %}
+    <article class="updates__item">
+      <div class="updates__meta">
+        <span aria-hidden="true">{{ update.emoji }}</span>
+        <time datetime="{{ update.date }}">{{ update.date | readableDate }}</time>
+      </div>
+      <p>{{ update.description }}</p>
+      {% if update.link %}
+      <a href="{{ update.link }}" class="updates__link" target="_blank" rel="noopener noreferrer">Learn more</a>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<section id="research" class="section" aria-labelledby="research-title">
+  <h2 id="research-title" class="section__title">Research focus</h2>
+  <p class="section__intro">{{ research.intro }}</p>
+  <ul class="list--columns">
+    {% for area in research.areas %}
+    <li>
+      <div class="list__item-title">{{ area.title }}</div>
+      <p>{{ area.description }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  <div class="section__title" style="margin-top: 2.5rem;">
+    <span class="badge">Selected papers &amp; sessions</span>
+  </div>
+  {% set highlightedPapers = papers | sortByDateDesc("year") %}
+  <ul class="list--stack" style="margin-top: 1.5rem;">
+    {% for paper in highlightedPapers %}
+    <li>
+      <div class="list__item-title">
+        {% if paper.link %}
+        <a href="{{ paper.link }}" target="_blank" rel="noopener noreferrer">{{ paper.title }}</a>
+        {% else %}
+        {{ paper.title }}
+        {% endif %}
+      </div>
+      <div class="list__meta">
+        {{ paper.year }}
+        {% if paper.venue %} · {{ paper.venue }}{% endif %}
+      </div>
+      <div>{{ paper.authors | ensureArray | join(", ") }}</div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+{% set recentWriting = blog | sortByDateDesc("date") %}
+{% if recentWriting.length %}
+<section id="writing" class="section" aria-labelledby="writing-title">
+  <h2 id="writing-title" class="section__title">Recent writing</h2>
+  <ul class="list--columns">
+    {% for post in recentWriting %}
+    <li>
+      <div class="list__item-title">
+        <a href="{{ post.link }}" target="_blank" rel="noopener noreferrer">{{ post.title }}</a>
+      </div>
+      <div class="list__meta">
+        {{ post.date | readableDate }}
+        {% if post.publication %} · {{ post.publication }}{% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<section id="projects" class="section" aria-labelledby="projects-title">
+  <h2 id="projects-title" class="section__title">Tools &amp; prototypes</h2>
+  <div class="section__intro">
+    Tools that help newsrooms experiment with AI, build data collections, and explore attention markets.
+  </div>
+  <div class="badge" style="margin-bottom: 1.5rem;">Open source</div>
+  <ul class="list--stack">
+    {% for tool in software %}
+    <li>
+      <div class="list__item-title">
+        <a href="{{ tool.link }}" target="_blank" rel="noopener noreferrer">{{ tool.name }}</a>
+      </div>
+      <p>{{ tool.description }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% if prototypes.length %}
+  <div class="section__title" style="margin-top: 2.5rem;">
+    <span class="badge">In the lab</span>
+  </div>
+  <ul class="list--stack" style="margin-top: 1.5rem;">
+    {% for prototype in prototypes %}
+    <li>
+      <div class="list__item-title">
+        <a href="{{ prototype.link }}" target="_blank" rel="noopener noreferrer">{{ prototype.name }}</a>
+      </div>
+      <p>{{ prototype.description }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>
+
+{% if mentions.length %}
+<section id="mentions" class="section" aria-labelledby="mentions-title">
+  <h2 id="mentions-title" class="section__title">Elsewhere</h2>
+  <ul class="mentions">
+    {% for mention in mentions %}
+    <li>
+      <span>{{ mention.date | readableDate }} · </span>
+      <a href="{{ mention.link }}" target="_blank" rel="noopener noreferrer">{{ mention.venue }} — {{ mention.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<section id="about" class="section" aria-labelledby="about-title">
+  <h2 id="about-title" class="section__title">About</h2>
+  <div class="bio">
+    {% for paragraph in bio.paragraphs %}
+    <p>{{ paragraph | safe }}</p>
+    {% endfor %}
+  </div>
+  {% if site.contact.note %}
+  <p class="section__intro" style="margin-top: 1.5rem;">{{ site.contact.note }}</p>
+  {% endif %}
+</section>

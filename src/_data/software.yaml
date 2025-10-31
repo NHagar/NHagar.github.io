@@ -1,9 +1,3 @@
-# Schema:
-# - name: String (Package Name)
-#   id: String (Unique identifier, e.g., "ai-research-assistants-comparative")
-#   description: String (Short description)
-#   link: String (URL to GitHub repo or project page)
-
 - name: "Substack API"
   id: "substack-api"
   description: "Unofficial wrapper for Substack APIs to fetch newsletters, posts, and more."
