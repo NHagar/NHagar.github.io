@@ -5,21 +5,20 @@
 #   date: String (YYYY-MM-DD format for sorting)
 #   link: String (URL to the blog post)
 #   publication: String (e.g., "Generative AI in the Newsroom blog", "Substack") - Optional
+- title: "Private, Free, and Powerful: A Guide to Local AI"
+  id: "private-free-and-powerful-a-guide"
+  date: 2025-10-22
+  link: "https://attentionmarkets.substack.com/p/private-free-and-powerful-a-guide"
+  publication: "Substack"
+
+- title: "Augmented Beat Reporting: Where LLMs Excel and Where Reporters Still Win"
+  id: "augmented-beat-reporting-where-llms-excel"
+  date: 2025-10-28
+  link: "https://generative-ai-newsroom.com/augmented-beat-reporting-where-llms-excel-and-where-reporters-still-win-135decbe8675"
+  publication: "Generative AI in the Newsroom"
 
 - title: "Liquifying Your AI Conversations"
   id: "liquifying-your-ai-conversations"
   date: 2025-09-21
   link: "https://attentionmarkets.substack.com/p/liquifying-your-ai-conversations"
   publication: "Substack"
-
-- title: "Building Semantic Search for News: A Technical Teardown of My NLWeb Implementation"
-  id: "building-semantic-search-for-news-a-technical-teardown-of-my-nlweb-implementation"
-  date: 2025-07-17
-  link: "https://attentionmarkets.substack.com/p/building-semantic-search-for-news"
-  publication: "Substack"
-
-- title: "Semantic Search in a Box: Microsoft's NLWeb for News Publishers"
-  id: "semantic-search-in-a-box-microsofts-nlweb-for-news-publishers"
-  date: 2025-06-23
-  link: "https://generative-ai-newsroom.com/semantic-search-in-a-box-microsofts-nlweb-for-news-publishers-8dd345735e27"
-  publication: "Generative AI in the Newsroom blog"
