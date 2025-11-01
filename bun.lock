@@ -4,6 +4,7 @@
     "": {
       "name": "nhagar.github.io",
       "dependencies": {
+        "js-yaml": "^4.1.0",
         "nhagar.github.io": ".",
       },
       "devDependencies": {

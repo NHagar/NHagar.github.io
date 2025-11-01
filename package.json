@@ -7,6 +7,7 @@
     "build": "eleventy"
   },
   "dependencies": {
+    "js-yaml": "^4.1.0",
     "nhagar.github.io": "."
   },
   "repository": {

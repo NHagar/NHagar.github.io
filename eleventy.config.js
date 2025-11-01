@@ -1,4 +1,10 @@
+import yaml from "js-yaml";
+
 export default function (eleventyConfig) {
+  // Add YAML data file support
+  eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
+  eleventyConfig.addDataExtension("yml", (contents) => yaml.load(contents));
+
   eleventyConfig.addPassthroughCopy({ "src/styles": "styles" });
   eleventyConfig.addWatchTarget("src/styles");
   eleventyConfig.addPassthroughCopy({ public: "." });
