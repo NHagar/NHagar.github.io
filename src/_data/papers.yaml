@@ -9,45 +9,35 @@
   year: 2025
   link: "https://arxiv.org/abs/2509.25494"
 
-- title: "LLM-Assisted News Discovery in High-Volume Information Streams: A Case Study"
-  id: "llm-assisted-news-discovery"
+- title: "Algorithmic indifference: The dearth of news recommendations on TikTok"
+  id: "algorithmic-indifference-tiktok"
   authors:
     - "Nick Hagar"
-    - "Ethan Silver"
-    - "Clare Spencer"
     - "Nicholas Diakopoulos"
-  type: "Conference Paper"
-  venue: "Computation + Journalism Symposium (C+J 2025)"
-  year: 2025
-  link: "https://arxiv.org/abs/2509.25491"
+  type: "Journal Article"
+  venue: "New Media & Society"
+  year: 2023
+  link: "https://journals.sagepub.com/doi/abs/10.1177/14614448231192964"
 
-- title: "Not Wrong, But Untrue: LLM Overconfidence in Document-Based Queries"
-  id: "not-wrong-but-untrue"
-  authors:
-    - "Nick Hagar"
-    - "Wilma Agustianto"
-    - "Nicholas Diakopoulos"
-  type: "Conference Paper"
-  venue: "Computation + Journalism Symposium (C+J 2025)"
-  year: 2025
-  link: "https://arxiv.org/abs/2509.25498"
-
-- title: "Tiny Tools for Big Impact: Local and Lightweight LLMs for Journalists"
-  id: "tiny-tools-big-impact"
-  authors:
-    - "Nick Hagar"
-    - "Mandi Cai"
-    - "Jeremy Gilbert"
-  type: "Conference Session"
-  venue: "SRCCON (Conference on Community and Collaboration)"
-  year: 2025
-  link: "https://2025.srccon.org/schedule/#_session-tiny-tools-big-impact"
-
-- title: "Practical Datasets for Analyzing LLM Corpora Derived from Common Crawl"
-  id: "practical-datasets-llm-corpora"
+- title: "Defining Local News: A Computational Approach"
+  id: "defining-local-news"
   authors:
     - "Nick Hagar"
     - "Jack Bandy"
+    - "Daniel Trielli"
+    - "Yixue Wang"
+    - "Nicholas Diakopoulos"
   type: "Conference Paper"
-  venue: "ICWSM (International AAAI Conference on Web and Social Media)"
-  year: 2025
+  venue: "Computation + Journalism Symposium (C+J 2020)"
+  year: 2020
+  link: "https://bpb-us-e1.wpmucdn.com/sites.northeastern.edu/dist/0/367/files/2020/02/CJ_2020_paper_40.pdf"
+
+- title: "Optimizing Content with A/B Headline Testing: Changing Newsroom Practices"
+  id: "optimizing-content-ab-testing"
+  authors:
+    - "Nick Hagar"
+    - "Nicholas Diakopoulos"
+  type: "Journal Article"
+  venue: "Media and Communication"
+  year: 2019
+  link: "https://www.ssoar.info/ssoar/bitstream/handle/document/61484/ssoar-mediacomm-2019-1-hagar_et_al-Optimizing_Content_with_AB_Headline.pdf?sequence=1"
