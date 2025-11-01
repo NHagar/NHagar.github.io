@@ -6,11 +6,11 @@ description: Personal site of Nick Hagar, focused on collective attention, gener
 
 <section class="masthead">
   <nav class="primary-nav" aria-label="Primary">
-    <a href="#updates">Updates</a>
-    <a href="#research">Research</a>
-    <a href="#writing">Writing</a>
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
+    <div class="masthead__links">
+      {% for link in site.social %}
+      <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+      {% endfor %}
+    </div>
   </nav>
   <div class="masthead__greeting">
     <h1>{{ site.name }}</h1>
@@ -20,14 +20,6 @@ description: Personal site of Nick Hagar, focused on collective attention, gener
     {% for role in site.roles %}
     <div>{{ role }}</div>
     {% endfor %}
-  </div>
-  <div class="masthead__meta">
-    <span>{{ site.location }}</span>
-    <div class="masthead__links">
-      {% for link in site.social %}
-      <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
-      {% endfor %}
-    </div>
   </div>
 </section>
 
