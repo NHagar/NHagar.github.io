@@ -1,13 +1,3 @@
-# src/data/mentions.yaml
-# Schema:
-# - venue: String (Name of the publication/podcast)
-#   id: String (Unique identifier, e.g., "ai-research-assistants-comparative")
-#   title: String (Title of the article/episode mentioning your work)
-#   link: String (URL to the mention)
-#   work_mentioned_title: String (Title of your work that was mentioned) - Optional
-#   work_mentioned_link: String (Link to your work that was mentioned) - Optional
-#   date: String (YYYY-MM-DD, if available/relevant) - Optional
-
 - venue: "Business Insider"
   id: "gen-z-news-tiktok"
   title: "Gen Z has discovered a whole new source for news"

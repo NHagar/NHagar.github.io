@@ -1,26 +1,20 @@
 {
   "name": "nhagar.github.io",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "eleventy --serve --watch",
+    "build": "eleventy"
   },
   "dependencies": {
-    "@iconify-json/mdi": "^1.2.3",
-    "astro": "^5.8.0",
-    "astro-icon": "^1.1.5"
+    "js-yaml": "^4.1.0",
+    "nhagar.github.io": "."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NHagar/NHagar.github.io.git"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.8",
-    "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.8"
+    "@11ty/eleventy": "^3.0.0"
   }
 }

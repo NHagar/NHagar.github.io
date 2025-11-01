@@ -1,0 +1,43 @@
+- title: "On-Premise AI for the Newsroom: Evaluating Small Language Models for Investigative Document Search"
+  id: "on-premise-ai-newsroom"
+  authors:
+    - "Nick Hagar"
+    - "Nicholas Diakopoulos"
+    - "Jeremy Gilbert"
+  type: "Conference Paper"
+  venue: "Computation + Journalism Symposium (C+J 2025)"
+  year: 2025
+  link: "https://arxiv.org/abs/2509.25494"
+
+- title: "Algorithmic indifference: The dearth of news recommendations on TikTok"
+  id: "algorithmic-indifference-tiktok"
+  authors:
+    - "Nick Hagar"
+    - "Nicholas Diakopoulos"
+  type: "Journal Article"
+  venue: "New Media & Society"
+  year: 2023
+  link: "https://journals.sagepub.com/doi/abs/10.1177/14614448231192964"
+
+- title: "Defining Local News: A Computational Approach"
+  id: "defining-local-news"
+  authors:
+    - "Nick Hagar"
+    - "Jack Bandy"
+    - "Daniel Trielli"
+    - "Yixue Wang"
+    - "Nicholas Diakopoulos"
+  type: "Conference Paper"
+  venue: "Computation + Journalism Symposium (C+J 2020)"
+  year: 2020
+  link: "https://bpb-us-e1.wpmucdn.com/sites.northeastern.edu/dist/0/367/files/2020/02/CJ_2020_paper_40.pdf"
+
+- title: "Optimizing Content with A/B Headline Testing: Changing Newsroom Practices"
+  id: "optimizing-content-ab-testing"
+  authors:
+    - "Nick Hagar"
+    - "Nicholas Diakopoulos"
+  type: "Journal Article"
+  venue: "Media and Communication"
+  year: 2019
+  link: "https://www.ssoar.info/ssoar/bitstream/handle/document/61484/ssoar-mediacomm-2019-1-hagar_et_al-Optimizing_Content_with_AB_Headline.pdf?sequence=1"

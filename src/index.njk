@@ -1,0 +1,98 @@
+---
+layout: layouts/base.njk
+title: Nick Hagar — Research, code, and writing
+description: Personal site of Nick Hagar, focused on collective attention, generative AI, and computational journalism.
+---
+
+<section class="masthead">
+  <nav class="primary-nav" aria-label="Primary">
+    <div class="masthead__links">
+      {% for link in site.social %}
+      <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+      {% endfor %}
+    </div>
+  </nav>
+  <div class="masthead__greeting">
+    <h1>{{ site.name }}</h1>
+    <p>{{ site.tagline }} <a href="/about/" style="font-variant: small-caps; font-family: 'Newsreader', serif; text-transform: lowercase;">more about me</a></p>
+  </div>
+  <div class="masthead__roles">
+    {% for role in site.roles %}
+    <div>{{ role }}</div>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="research" class="section" aria-labelledby="research-title">
+  <h2 id="research-title" class="section__title">Selected papers</h2>
+  {% set highlightedPapers = papers | sortByDateDesc("year") %}
+  <ul class="list--stack" style="margin-top: 1.5rem;">
+    {% for paper in highlightedPapers %}
+    <li>
+      <div class="list__item-title">
+        {% if paper.link %}
+        <a href="{{ paper.link }}" target="_blank" rel="noopener noreferrer">{{ paper.title }}</a>
+        {% else %}
+        {{ paper.title }}
+        {% endif %}
+      </div>
+      <div class="list__meta">
+        {{ paper.year }}
+        {% if paper.venue %} · {{ paper.venue }}{% endif %}
+      </div>
+      <div>{{ paper.authors | ensureArray | join(", ") }}</div>
+    </li>
+    {% endfor %}
+  </ul>
+  <div style="margin-top: 1.5rem; font-variant: small-caps; font-family: 'Newsreader', serif; text-transform: lowercase;">
+    <a href="https://scholar.google.com/citations?user=UfMYPhEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">google scholar</a>
+  </div>
+</section>
+
+{% set recentWriting = blog | sortByDateDesc("date") %}
+{% if recentWriting.length %}
+<section id="writing" class="section" aria-labelledby="writing-title">
+  <h2 id="writing-title" class="section__title">Recent writing</h2>
+  <ul class="list--columns">
+    {% for post in recentWriting %}
+    <li>
+      <div class="list__item-title">
+        <a href="{{ post.link }}" target="_blank" rel="noopener noreferrer">{{ post.title }}</a>
+      </div>
+      <div class="list__meta">
+        {{ post.date | readableDate }}
+        {% if post.publication %} · {{ post.publication }}{% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  <div style="margin-top: 1.5rem; font-variant: small-caps; font-family: 'Newsreader', serif; text-transform: lowercase;">
+    <a href="https://attentionmarkets.substack.com" target="_blank" rel="noopener noreferrer">substack</a>
+  </div>
+</section>
+{% endif %}
+
+<section id="projects" class="section" aria-labelledby="projects-title">
+  <h2 id="projects-title" class="section__title">Tools &amp; prototypes</h2>
+  <ul class="list--stack" style="margin-top: 1.5rem;">
+    {% for tool in software %}
+    <li>
+      <div class="list__item-title">
+        <a href="{{ tool.link }}" target="_blank" rel="noopener noreferrer">{{ tool.name }}</a>
+      </div>
+      <p>{{ tool.description }}</p>
+    </li>
+    {% endfor %}
+    {% for prototype in prototypes %}
+    <li>
+      <div class="list__item-title">
+        <a href="{{ prototype.link }}" target="_blank" rel="noopener noreferrer">{{ prototype.name }}</a>
+      </div>
+      <p>{{ prototype.description }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  <div style="margin-top: 1.5rem; font-variant: small-caps; font-family: 'Newsreader', serif; text-transform: lowercase;">
+    <a href="https://github.com/nhagar" target="_blank" rel="noopener noreferrer">github</a>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+{
+  "intro": "My research centers on understanding the dynamics of collective attention in complex digital ecosystems. I use computational methods, data science, and network analysis to investigate:",
+  "areas": [
+    {
+      "title": "AI in Journalism & Media",
+      "description": "How artificial intelligence reshapes newsroom workflows, editorial judgment, and audience relationships."
+    },
+    {
+      "title": "Information Discovery & Virality",
+      "description": "Why certain stories surface, how they spread across platforms, and what pulls collective focus."
+    },
+    {
+      "title": "Platform Dynamics",
+      "description": "The structures, incentives, and politics of the attention markets that route news and culture."
+    },
+    {
+      "title": "Computational Methods for Social Science",
+      "description": "New datasets and tooling for studying media, algorithms, and online publics at scale."
+    }
+  ]
+}

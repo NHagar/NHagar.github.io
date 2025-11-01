@@ -1,0 +1,18 @@
+# Recent announcements and milestones
+- emoji: "🏆"
+  id: "adexchanger-brandmatch"
+  date: 2025-10-23
+  description: 'BrandMatch, the LLM-powered ad targeting tool I helped build at NYT, won AdExchanger''s "Best Use Of Technology By A Publisher or Media Seller" award.'
+  link: "https://www.adexchanger.com/go/awards-2025/"
+
+- emoji: "📄"
+  id: "cplusj-2025"
+  date: 2025-10-12
+  description: 'Three short papers I led were accepted to C+J 2025: "Not Wrong, But Untrue," "On-Premise AI for the Newsroom," and "LLM-Assisted News Discovery in High-Volume Information Streams."'
+  link: "https://arxiv.org/search/cs?searchtype=author&query=Hagar,+N"
+
+- emoji: "🧑‍🏫"
+  id: "teaching-2025"
+  date: 2025-09-16
+  description: "I'm teaching in the Knight Lab again this quarter, this time as part of the fall cohort of Studio projects."
+  link: "https://studio.knightlab.com/"
