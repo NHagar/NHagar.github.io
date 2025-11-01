@@ -1,7 +1,5 @@
 # Nick Hagar — personal site
 
-This repository now powers the minimalist Eleventy build for [nickhagar.com](https://nickhagar.com) (also deployed at `NHagar.github.io`). The goal is a high-contrast, typographic single page that surfaces research, writing, and tools at a glance.
-
 ## Getting started
 
 ```sh
