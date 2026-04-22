@@ -1,17 +1,23 @@
+- title: "Building Investigative Tipsheets with Claude Code"
+  id: "building-investigative-tipsheets-with-claude-code"
+  date: 2026-04-07
+  link: "https://generative-ai-newsroom.com/building-investigative-tipsheets-with-claude-code-2e872b26358e"
+  publication: "Generative AI in the Newsroom"
+
+- title: "Wrangling Messy Documents with Coding Agents"
+  id: "wrangling-messy-documents-with-coding-agents"
+  date: 2026-03-03
+  link: "https://generative-ai-newsroom.com/wrangling-messy-documents-with-coding-agents-196b9b8e8959"
+  publication: "Generative AI in the Newsroom"
+
+- title: "Coding Agents for Investigative Journalism"
+  id: "coding-agents-for-investigative-journalism"
+  date: 2026-01-27
+  link: "https://generative-ai-newsroom.com/coding-agents-for-investigative-journalism-8b65bc30f9ea"
+  publication: "Generative AI in the Newsroom"
+
 - title: "Private, Free, and Powerful: A Guide to Local AI"
   id: "private-free-and-powerful-a-guide"
   date: 2025-10-22
   link: "https://attentionmarkets.substack.com/p/private-free-and-powerful-a-guide"
-  publication: "Substack"
-
-- title: "Augmented Beat Reporting: Where LLMs Excel and Where Reporters Still Win"
-  id: "augmented-beat-reporting-where-llms-excel"
-  date: 2025-10-28
-  link: "https://generative-ai-newsroom.com/augmented-beat-reporting-where-llms-excel-and-where-reporters-still-win-135decbe8675"
-  publication: "Generative AI in the Newsroom"
-
-- title: "Liquifying Your AI Conversations"
-  id: "liquifying-your-ai-conversations"
-  date: 2025-09-21
-  link: "https://attentionmarkets.substack.com/p/liquifying-your-ai-conversations"
   publication: "Substack"

@@ -1,3 +1,12 @@
+- title: "Topic Classification of News Articles from URLs Alone"
+  id: "topic-classification-news-urls"
+  authors:
+    - "Nick Hagar"
+  type: "Journal Article"
+  venue: "Computational Communication Research"
+  year: 2026
+  link: "https://www.aup-online.com/content/journals/10.5117/CCR2026.1.1.HAGA"
+
 - title: "On-Premise AI for the Newsroom: Evaluating Small Language Models for Investigative Document Search"
   id: "on-premise-ai-newsroom"
   authors:
@@ -31,13 +40,3 @@
   venue: "Computation + Journalism Symposium (C+J 2020)"
   year: 2020
   link: "https://bpb-us-e1.wpmucdn.com/sites.northeastern.edu/dist/0/367/files/2020/02/CJ_2020_paper_40.pdf"
-
-- title: "Optimizing Content with A/B Headline Testing: Changing Newsroom Practices"
-  id: "optimizing-content-ab-testing"
-  authors:
-    - "Nick Hagar"
-    - "Nicholas Diakopoulos"
-  type: "Journal Article"
-  venue: "Media and Communication"
-  year: 2019
-  link: "https://www.ssoar.info/ssoar/bitstream/handle/document/61484/ssoar-mediacomm-2019-1-hagar_et_al-Optimizing_Content_with_AB_Headline.pdf?sequence=1"

@@ -6,10 +6,10 @@
     - "LLM"
     - "Data Management"
 
-- name: "LLM data schema generator"
-  id: "llm-data-schema-generator"
-  description: "An early attempt to automatically generate schema for structured outputs with LLMs."
-  link: "https://github.com/NHagar/schema-generation"
+- name: "Journalism skills for Claude Code"
+  id: "claude-plugins-journalism"
+  description: "A plugin marketplace of investigative journalism skills for Claude Code — Python execution, data preprocessing with provenance tracking, and document extraction."
+  link: "https://github.com/NHagar/claude-plugins-journalism"
   tags:
     - "LLM"
-    - "Document Processing"
+    - "Journalism"
