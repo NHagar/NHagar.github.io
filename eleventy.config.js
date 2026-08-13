@@ -13,6 +13,7 @@ export default function (eleventyConfig) {
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: "UTC",
   });
 
   eleventyConfig.addFilter("readableDate", (value) => {
